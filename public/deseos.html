@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Lista de Deseos - Avanzza UMG</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script src="js/session-manager.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#192338",
+                        "primary-container": "#192338",
+                        "secondary": "#31487A",
+                        "surface": "#f9f9ff",
+                        "surface-container-low": "#f1f3ff",
+                        "surface-container-highest": "#d8e2ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#111b30",
+                        "on-surface-variant": "#45474d",
+                        "accent": "#8FB3E2",
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Manrope', sans-serif; background-color: #f9f9ff; color: #111b30; }
+        .editorial-title { letter-spacing: -0.02em; }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .deep-sea-shadow {
+            box-shadow: 0px 12px 32px rgba(17, 27, 48, 0.06);
+        }
+    </style>
+</head>
+<body class="selection:bg-accent/30 selection:text-primary min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="h-screen w-64 fixed left-0 top-0 flex flex-col bg-surface-container-low z-[60] py-10">
+        <div class="px-8 mb-12">
+            <h1 class="text-lg font-black text-primary tracking-tighter uppercase editorial-title">Avanzza UMG</h1>
+            <p class="text-[10px] tracking-[0.2em] opacity-40 uppercase font-bold text-primary">Academic Excellence</p>
+        </div>
+        
+        <nav class="flex flex-col gap-2 flex-grow">
+            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all" href="dashboard.html">
+                <span class="material-symbols-outlined">school</span>
+                <span class="font-bold text-sm">Dashboard</span>
+            </a>
+            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all" href="explorar.html">
+                <span class="material-symbols-outlined">explore</span>
+                <span class="font-bold text-sm">Explorar</span>
+            </a>
+            <a class="bg-surface-container-highest text-primary rounded-r-full py-4 px-8 flex items-center gap-4 transition-all" href="deseos.html">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+                <span class="font-bold text-sm">Lista de Deseos</span>
+            </a>
+            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all" href="seguimiento.html">
+                <span class="material-symbols-outlined">monitoring</span>
+                <span class="font-bold text-sm">Seguimiento</span>
+            </a>
+            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all" href="proximos.html">
+                <span class="material-symbols-outlined">event</span>
+                <span class="font-bold text-sm">Próximos</span>
+            </a>
+            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all" href="activos.html">
+                <span class="material-symbols-outlined">play_circle</span>
+                <span class="font-bold text-sm">Cursos Activos</span>
+            </a>
+        </nav>
+
+        <div class="mt-auto px-8 space-y-2">
+            <a class="text-primary/40 py-4 flex items-center gap-4 hover:text-primary transition-all" href="#">
+                <span class="material-symbols-outlined">settings</span>
+                <span class="font-bold text-xs uppercase tracking-widest">Settings</span>
+            </a>
+            <a class="text-red-600/60 py-4 flex items-center gap-4 hover:text-red-600 transition-all border-t border-primary/5" href="index.html">
+                <span class="material-symbols-outlined">logout</span>
+                <span class="font-bold text-xs uppercase tracking-widest">Salir de Sesión</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="ml-64 flex-grow min-h-screen flex flex-col relative bg-surface">
+        <header class="glass-header flex justify-between items-center w-full px-12 py-5 sticky top-0 z-50">
+            <h2 class="text-sm font-bold text-primary tracking-widest uppercase editorial-title">Digital Curator View</h2>
+            <div class="flex items-center gap-6">
+                <span class="material-symbols-outlined text-primary/40 cursor-pointer hover:text-primary">notifications</span>
+                <div class="flex items-center gap-3 pl-6 border-l border-primary/5">
+                    <div class="text-right">
+                        <p class="text-xs font-black text-primary uppercase">M. Scholarly</p>
+                        <p class="text-[9px] font-bold text-secondary tracking-tighter">Academic Tier I</p>
+                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-surface-container-highest deep-sea-shadow overflow-hidden">
+                        <img src="https://lh3.googleusercontent.com/a/ACg8ocL_2C8" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="p-12 max-w-7xl w-full mx-auto space-y-16">
+            <section class="max-w-3xl">
+                <span class="text-[10px] font-bold text-secondary uppercase tracking-[0.3em] mb-4 block">Personal Archive</span>
+                <h3 class="text-6xl font-extrabold text-primary leading-none editorial-title mb-6">
+                    Tu Lista de <span class="text-secondary italic">Deseos.</span>
+                </h3>
+                <p class="text-lg text-primary/60 font-medium leading-relaxed">
+                    Reserva los programas que han capturado tu interés académico para futuras consultas y aprendizaje.
+                </p>
+            </section>
+
+            <div class="space-y-6">
+                <!-- Item 1 Card -->
+                <div class="bg-surface-container-lowest p-8 rounded-[2rem] deep-sea-shadow flex flex-col md:flex-row gap-8 items-center transition-all hover:translate-y-[-4px]">
+                    <div class="w-full md:w-56 aspect-[4/3] rounded-2xl bg-surface-container-low overflow-hidden relative group">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1SN5hazVJcjFg57KtT9S8Tx8mRgyiNjZaiKE6yfbUZFkrPp167FgtUEw3kNWcT4iukh-a0hFtVvuKLdGq4Q6Eam8NH3UCD1HK1AeYzYAq5h4SNmCn48eJQMIBQHCQnlvc4gEwuaOWfTl4UCaStPXhdSvasqZ_lVNq94Gfs_1lPYLtiUiB4voYDvJCklCCHVApX3BAkp_vRDUSfdSD87ix_bUVJt4VxTe9i40Di18yODBZMjZLH70_rmTTcphZheCSp2vbCSrf09M" class="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 transition-all duration-700">
+                    </div>
+                    <div class="flex-grow space-y-4">
+                        <div>
+                            <span class="px-3 py-1 bg-surface-container-highest text-[9px] font-bold text-primary uppercase tracking-widest rounded-full">Filosofía</span>
+                            <h4 class="text-3xl font-black text-primary editorial-title mt-2">Filosofía de la Estética Digital</h4>
+                            <p class="text-sm font-bold text-secondary uppercase tracking-tighter mt-1">Dra. Elena Vance</p>
+                        </div>
+                        <p class="text-base text-primary/40 font-medium leading-relaxed">Un análisis profundo de cómo lo digital redefine nuestra percepción de la belleza y la forma.</p>
+                    </div>
+                    <div class="text-right space-y-4 min-w-[120px]">
+                        <span class="text-2xl font-black text-primary block">$89.99</span>
+                        <a href="seguimiento.html" class="inline-block px-8 py-4 bg-primary text-white font-black text-xs uppercase tracking-widest rounded-xl deep-sea-shadow hover:bg-secondary transition-all">
+                            Inscribirse
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-auto py-12 px-12 opacity-30 text-[10px] font-bold text-primary uppercase tracking-widest text-center">
+            © <span id="current-year">2026</span> AVANZZA UMG. ALL RIGHTS RESERVED.
+        </footer>
+    </main>
+</body>
+</html>

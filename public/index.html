@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Avanzza UMG</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#192338",
+                        "secondary": "#31487A",
+                        "surface": "#f9f9ff",
+                        "surface-container-low": "#f1f3ff",
+                        "surface-container-highest": "#d8e2ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#111b30",
+                        "accent": "#8FB3E2",
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope", "sans-serif"],
+                        "body": ["Manrope", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #f9f9ff;
+            color: #111b30;
+            transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.6s ease;
+        }
+
+        /* Responsive vertical spacing for shorter screens */
+        @media (max-height: 850px) {
+            main {
+                padding-top: 2rem !important;
+                padding-bottom: 0px !important;
+            }
+
+            .editorial-title {
+                font-size: 1.5rem !important;
+            }
+
+            .bg-surface-container-lowest {
+                padding: 1.5rem !important;
+                border-radius: 2rem !important;
+            }
+
+            footer {
+                padding-top: 1.5rem !important;
+                padding-bottom: 1.5rem !important;
+                gap: 1rem !important;
+            }
+
+            .material-symbols-outlined {
+                font-size: 1.25rem !important;
+            }
+        }
+
+        @media (max-height: 700px) {
+            main {
+                transform: scale(0.9);
+                transform-origin: top center;
+                margin-bottom: -40px;
+            }
+
+            footer {
+                transform: scale(0.9);
+                transform-origin: bottom center;
+            }
+        }
+
+        /* Catedrático Theme Overrides */
+        body.catedratico-theme {
+            background-color: #192338;
+            color: #ffffff;
+        }
+
+        body.catedratico-theme .bg-surface-container-lowest {
+            background-color: #1e2e4f;
+            color: #ffffff;
+        }
+
+        body.catedratico-theme .text-primary {
+            color: #ffffff;
+        }
+
+        body.catedratico-theme .text-primary\/40,
+        body.catedratico-theme .text-primary\/60,
+        body.catedratico-theme .text-primary\/30 {
+            color: rgba(217, 225, 241, 0.4);
+        }
+
+        body.catedratico-theme .bg-surface-container-low {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        body.catedratico-theme .signature-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #d8e2ff 100%);
+            color: #192338;
+        }
+
+        body.catedratico-theme #toggle-bg {
+            background-color: #192338;
+        }
+
+        body.catedratico-theme input {
+            color: #ffffff;
+        }
+
+        .editorial-title {
+            letter-spacing: -0.02em;
+        }
+
+        .deep-sea-shadow {
+            box-shadow: 0px 12px 32px rgba(17, 27, 48, 0.06);
+            transition: box-shadow 0.6s ease;
+        }
+
+        body.catedratico-theme .deep-sea-shadow {
+            box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        .signature-gradient {
+            background: linear-gradient(135deg, #192338 0%, #31487A 100%);
+            transition: all 0.6s ease;
+        }
+    </style>
+
+</head>
+
+<body
+    class="selection:bg-accent/30 selection:text-primary min-h-screen flex flex-col items-center justify-between py-8 relative overflow-x-hidden overflow-y-auto">
+    <!-- Ambient Background Elements -->
+    <div
+        class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-surface-container-low rounded-full blur-[120px] opacity-50">
+    </div>
+    <div
+        class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-surface-container-highest rounded-full blur-[120px] opacity-30">
+    </div>
+
+    <main class="relative z-10 w-full max-w-[420px] p-6 flex flex-col gap-8">
+        <div class="text-center mb-0">
+            <img src="assets/Logo.jpeg" alt="Avanzza UMG" class="h-16 mx-auto mb-4 hover:scale-105 transition-transform duration-500">
+            <p class="text-[12px] tracking-[0.4em] opacity-40 uppercase font-bold text-primary">La plataforma digital de
+                enseñanza UMG</p>
+        </div>
+
+        <div class="bg-surface-container-lowest p-8 md:p-10 rounded-[2.5rem] deep-sea-shadow space-y-6">
+            <header>
+                <h2 class="text-4xl font-extrabold text-primary leading-none editorial-title mb-4 italic">Ingreso</h2>
+                <p class="text-sm text-primary/40 font-medium leading-relaxed">Bienvenido al archivo digital de
+                    excelencia académica.</p>
+            </header>
+
+            <form id="login-form" class="space-y-6">
+                <!-- User Type Toggle -->
+                <div class="p-1 bg-surface-container-low rounded-2xl flex relative">
+                    <button type="button" id="toggle-estudiante"
+                        class="flex-1 py-2 text-[10px] font-black uppercase tracking-widest z-10 transition-colors text-primary"
+                        onclick="toggleUserType('estudiante')">Estudiante</button>
+                    <button type="button" id="toggle-catedratico"
+                        class="flex-1 py-2 text-[10px] font-black uppercase tracking-widest z-10 transition-colors text-primary/40"
+                        onclick="toggleUserType('catedratico')">Catedrático</button>
+                    <div id="toggle-bg"
+                        class="absolute top-1 left-1 bottom-1 w-[calc(50%-4px)] bg-surface-container-lowest rounded-xl deep-sea-shadow transition-transform duration-300">
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <label
+                        class="block text-[10px] font-black text-primary/60 uppercase tracking-widest px-2">Credenciales
+                        Académicas</label>
+                    <div class="space-y-4">
+                        <div class="relative group">
+                            <span
+                                class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary/30 group-focus-within:text-secondary transition-colors">mail</span>
+                            <input id="email"
+                                class="w-full pl-14 pr-6 py-4 bg-surface-container-low rounded-xl text-primary font-bold placeholder:text-primary/20 border-none focus:ring-0 focus:bg-surface-container-highest transition-all outline-none text-sm"
+                                placeholder="admin@avanzza.com" type="email" required />
+                        </div>
+                        <div class="relative group">
+                            <span
+                                class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary/30 group-focus-within:text-secondary transition-colors">lock</span>
+                            <input id="password"
+                                class="w-full pl-14 pr-6 py-4 bg-surface-container-low rounded-xl text-primary font-bold placeholder:text-primary/20 border-none focus:ring-0 focus:bg-surface-container-highest transition-all outline-none text-sm"
+                                placeholder="••••••••" type="password" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div id="error-message"
+                    class="text-red-500 text-[10px] font-bold uppercase tracking-widest hidden text-center">Identidad no
+                    verificada</div>
+
+                <div class="space-y-4">
+                    <button
+                        class="w-full py-4 signature-gradient text-white rounded-xl font-black text-xs uppercase tracking-[0.2em] deep-sea-shadow hover:scale-[1.02] active:scale-[0.98] transition-all"
+                        type="submit">
+                        Iniciar Sesión
+                    </button>
+
+                    <button type="button"
+                        class="w-full py-4 bg-surface-container-lowest text-primary rounded-xl font-black text-[10px] uppercase tracking-[0.2em] deep-sea-shadow hover:bg-surface-container-low transition-all flex items-center justify-center gap-3">
+                        <img src="https://www.google.com/favicon.ico" class="w-4 h-4 grayscale opacity-50" alt="Google">
+                        Google
+                    </button>
+                </div>
+            </form>
+
+
+            <footer class="pt-6 border-t border-primary/5 text-center">
+                <p class="text-[9px] font-bold text-primary/30 uppercase tracking-[0.2em]">Acceso Restringido a
+                    Estudiantes y Catedráticos</p>
+            </footer>
+        </div>
+    </main>
+
+    <footer class="w-full py-6 flex flex-col items-center gap-6 relative z-10 transition-colors duration-600">
+        <!-- Social & Academic Links -->
+        <div class="flex items-center gap-6">
+            <a href="https://apps1.umg.edu.gt/"
+                class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary/40 hover:bg-primary hover:text-white transition-all deep-sea-shadow">
+                <span class="material-symbols-outlined text-[20px]">public</span>
+            </a>
+            <a href="https://www.facebook.com/u.marianogalvez/"
+                class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary/40 hover:bg-[#1877F2] hover:text-white transition-all deep-sea-shadow">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+            </a>
+            <a href="https://gt.linkedin.com/school/universidad-mariano-g-lvez-de-guatemala/"
+                class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary/40 hover:bg-[#0A66C2] hover:text-white transition-all deep-sea-shadow">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path
+                        d="M20.447 20.452h-3.554V15.034c0-1.291-.026-2.954-1.8-2.954-1.802 0-2.078 1.406-2.078 2.86v5.512h-3.554V9h3.41v1.561h.046c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+            </a>
+        </div>
+
+        <!-- Institution & Date -->
+        <div class="text-center space-y-2">
+            <p class="text-[3px] font-black text-primary/20 uppercase tracking-[0.4em] editorial-title">
+                © <span id="current-year">2024</span> <span class="text-primary/20 italic">Avanzza UMG</span>
+            </p>
+            <div class="flex items-center justify-center gap-4 opacity-10">
+                <div class="h-px w-8 bg-primary"></div>
+                <span class="material-symbols-outlined text-xs">auto_stories</span>
+                <div class="h-px w-8 bg-primary"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set Dynamic Year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        let currentUserType = 'estudiante';
+
+        function toggleUserType(type) {
+            currentUserType = type;
+            const bg = document.getElementById('toggle-bg');
+            const estBtn = document.getElementById('toggle-estudiante');
+            const catBtn = document.getElementById('toggle-catedratico');
+            const body = document.body;
+
+            if (type === 'estudiante') {
+                body.classList.remove('catedratico-theme');
+                bg.style.transform = 'translateX(0)';
+                estBtn.classList.remove('text-primary/40');
+                estBtn.classList.add('text-primary');
+                catBtn.classList.remove('text-primary');
+                catBtn.classList.add('text-primary/40');
+            } else {
+                body.classList.add('catedratico-theme');
+                bg.style.transform = 'translateX(100%)';
+                catBtn.classList.remove('text-primary/40');
+                catBtn.classList.add('text-primary');
+                estBtn.classList.remove('text-primary');
+                estBtn.classList.add('text-primary/40');
+            }
+        }
+
+
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('error-message');
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password, type: currentUserType })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    window.location.href = '/dashboard.html';
+                } else {
+                    errorDiv.classList.remove('hidden');
+                }
+            } catch (err) {
+                console.error('Error logging in:', err);
+                errorDiv.innerText = 'Error de conexión con el servidor';
+                errorDiv.classList.remove('hidden');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
