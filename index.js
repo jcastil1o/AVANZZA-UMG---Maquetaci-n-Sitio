@@ -50,17 +50,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.post('/api/login', (req, res) => {
     const { email, password, type } = req.body;
 
-    const MOCK_USER = process.env.MOCK_USER || "admin@avanzza.com";
-    const MOCK_PASS = process.env.MOCK_PASS || "admin123";
+    // "Burned-in" credentials logic: prioritization of .env, with hardcoded fallback
+    const MOCK_USER = process.env.MOCK_USER && process.env.MOCK_USER.trim() !== "" 
+                      ? process.env.MOCK_USER 
+                      : "admin@avanzza.com";
+
+    const MOCK_PASS = process.env.MOCK_PASS && process.env.MOCK_PASS.trim() !== "" 
+                      ? process.env.MOCK_PASS 
+                      : "avanzza123";
 
     if (email === MOCK_USER && password === MOCK_PASS) {
         // Set Session
         req.session.user = { email, type };
-        console.log(`Login success for ${type}: ${email}`);
+        console.log(`[Success] Login for ${type}: ${email} (using ${process.env.MOCK_USER ? 'ENV' : 'HARDCODED'} credentials)`);
         return res.json({ success: true, message: "Login successful!" });
     } else {
-        console.log(`Login failed for ${email}`);
-        return res.status(401).json({ success: false, message: "Invalid credentials" });
+        console.log(`[Failed] Invalid login attempt for ${email}`);
+        return res.status(401).json({ success: false, message: "Identidad no verificada" });
     }
 });
 
