@@ -9,4 +9,5 @@ yarn-error.log*
 .vscode/
 dist/
 build/
-.cache
+.cache/
+.firebase/
