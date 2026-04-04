@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-fixed-variant": "#93000e",
+              "surface-container-low": "#f1f4f9",
+              "secondary": "#3c608b",
+              "outline-variant": "#c5c6cf",
+              "outline": "#75777f",
+              "error": "#ba1a1a",
+              "surface": "#f7f9fe",
+              "on-secondary-container": "#335882",
+              "on-primary-fixed-variant": "#374669",
+              "surface-container": "#ebeef3",
+              "tertiary-container": "#650007",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#b6c6ef",
+              "inverse-primary": "#b6c6ef",
+              "on-surface-variant": "#44464e",
+              "on-background": "#181c20",
+              "on-secondary": "#ffffff",
+              "on-tertiary-container": "#ff6158",
+              "surface-dim": "#d7dadf",
+              "on-secondary-fixed": "#001c37",
+              "surface-variant": "#dfe3e8",
+              "surface-container-lowest": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-container-highest": "#dfe3e8",
+              "inverse-on-surface": "#eef1f6",
+              "on-tertiary": "#ffffff",
+              "surface-tint": "#4f5e82",
+              "tertiary-fixed-dim": "#ffb4ac",
+              "secondary-container": "#abcfff",
+              "on-primary-fixed": "#081a3b",
+              "inverse-surface": "#2d3135",
+              "primary": "#071939",
+              "on-secondary-fixed-variant": "#224971",
+              "on-error": "#ffffff",
+              "background": "#f7f9fe",
+              "secondary-fixed-dim": "#a5c9f9",
+              "primary-container": "#1e2e4f",
+              "on-primary-container": "#8696bd",
+              "tertiary": "#3e0002",
+              "surface-container-high": "#e5e8ed",
+              "tertiary-fixed": "#ffdad6",
+              "on-surface": "#181c20",
+              "on-tertiary-fixed": "#410003",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#d2e4ff",
+              "primary-fixed": "#d9e2ff",
+              "surface-bright": "#f7f9fe"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-sidebar {
+            background: rgba(30, 46, 79, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-[#D9E1F1] to-white min-h-screen flex flex-col items-center justify-center selection:bg-[#8FB3E2]/30">
+<!-- Main Canvas -->
+<main class="flex-grow flex items-center justify-center w-full px-6 py-12 relative overflow-hidden">
+<!-- Atmospheric Background Element -->
+<!-- Login Card Container -->
+<div class="relative z-10 w-full max-w-[480px]">
+<!-- Brand Identity Anchor -->
+<div class="flex justify-center mb-8">
+<img alt="Avanzza Logo" class="h-12 w-auto object-contain" data-alt="Professional minimalist logo for Avanzza educational platform featuring clean geometric lines in dark oxford blue and metallic blue tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF0yC4WCYQ0xNL5JkFhU_K81YOHBfvXBBJv3yE_Pw0PVWoo1iimqxGpVEbo4qiH3QipdiHjsACSww6cNUBsAQ1p6OezrDNNcer8-UQY9StMgSghYbY36tMvL_To0oC-wtmRTQrK5SoIB1-W1mQP7m4Q27iBABlVh5LpCwRAeKWCBRXSuu36I1XiYjoq7uIApgnefYp5UH3f0P7VDS_yQ860i6cYL4B3RGGNDx6eq8RfY2QUJEwVG2i8hUm-y37cqQm1wwwlhkfBBU"/>
+</div>
+<!-- The Curator's Card -->
+<div class="bg-white rounded-xl p-8 md:p-12 shadow-sm border border-[#D9E1F1]">
+<header class="text-center mb-8">
+<h1 class="text-[#192338] font-headline text-3xl font-extrabold tracking-tight mb-2">Bienvenido a Avanzza</h1>
+<p class="text-[#1E2E4F] font-body text-sm opacity-80">Ingresa tus credenciales para continuar tu aprendizaje.</p>
+</header>
+<!-- Role Toggle (Segmented Control) -->
+<div class="bg-surface-container-low p-1.5 rounded-xl flex mb-8">
+<button class="flex-1 py-2.5 px-4 rounded-xl text-sm font-bold transition-all duration-200 bg-primary text-on-primary shadow-sm">
+                        Estudiante
+                    </button>
+<button class="flex-1 py-2.5 px-4 rounded-xl text-sm font-semibold transition-all duration-200 text-on-surface-variant hover:text-primary">
+                        Catedrático
+                    </button>
+</div>
+<!-- Form Context -->
+<form class="space-y-6">
+<div class="space-y-2">
+<label class="block text-sm font-bold text-[#1E2E4F] font-label px-1">Correo Electrónico o Usuario</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#1E2E4F]/60 text-xl">mail</span>
+<input class="w-full pl-12 pr-4 py-4 bg-[#D9E1F1]/30 rounded-lg text-[#192338] placeholder:text-[#1E2E4F]/50 border border-[#D9E1F1] focus:ring-2 focus:ring-[#8FB3E2] focus:bg-white transition-all outline-none font-body" placeholder="nombre@ejemplo.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="block text-sm font-bold text-[#1E2E4F] font-label px-1">Contraseña</label>
+<a class="text-xs font-semibold text-[#31487A] hover:text-[#8FB3E2] hover:underline" href="#">¿Olvidaste tu contraseña?</a>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#1E2E4F]/60 text-xl">lock</span>
+<input class="w-full pl-12 pr-4 py-4 bg-[#D9E1F1]/30 rounded-lg text-[#192338] placeholder:text-[#1E2E4F]/50 border border-[#D9E1F1] focus:ring-2 focus:ring-[#8FB3E2] focus:bg-white transition-all outline-none font-body" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Primary Action -->
+<button class="w-full py-4 bg-[#31487A] text-white rounded-lg font-bold text-lg hover:bg-[#1E2E4F] active:scale-[0.98] transition-all shadow-md" type="submit">
+                        Iniciar Sesión
+                    </button>
+</form>
+<!-- Divider Component -->
+<div class="relative my-8">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-outline-variant opacity-30"></div>
+</div>
+<div class="relative flex justify-center text-xs">
+<span class="px-4 bg-white text-[#1E2E4F]/50 font-medium uppercase tracking-widest">o</span>
+</div>
+</div>
+<!-- Social Action -->
+<button class="w-full flex items-center justify-center gap-3 py-3.5 px-4 bg-white border border-[#D9E1F1] rounded-lg font-semibold text-[#1E2E4F] hover:bg-[#D9E1F1]/20 transition-colors duration-200">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                    Continuar con Google
+                </button>
+<footer class="mt-8 text-center">
+<p class="text-sm font-body text-on-surface-variant">
+                        ¿No tienes una cuenta? 
+                        <a class="text-xs font-semibold text-[#31487A] hover:text-[#8FB3E2] hover:underline" href="#">Crear una cuenta</a>
+</p>
+</footer>
+</div>
+</div>
+</main>
+<!-- Shared Footer Component -->
+<footer class="bg-[#D9E1F1]/50 w-full py-8 mt-auto flex flex-col items-center justify-center space-y-4 font-manrope text-sm border-t border-[#D9E1F1]">
+<div class="flex space-x-6">
+<a class="text-slate-500 hover:text-[#071939] transition-opacity" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-[#071939] transition-opacity" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-[#071939] transition-opacity" href="#">Help Center</a>
+</div>
+<div class="text-slate-500">
+            © 2024 Avanzza. All rights reserved.
+        </div>
+</footer>
+</body></html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seguimiento de Curso - The Curated Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#44464f",
+              "inverse-primary": "#b0c6ff",
+              "on-primary-fixed": "#001944",
+              "tertiary": "#04345c",
+              "surface-variant": "#dbe3f3",
+              "on-error-container": "#93000a",
+              "error": "#ba1a1a",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#081a3b",
+              "on-tertiary-fixed": "#001c37",
+              "on-background": "#141c27",
+              "secondary-container": "#c4d4fe",
+              "surface-container": "#e6eefe",
+              "on-primary": "#ffffff",
+              "surface-tint": "#475d91",
+              "on-primary-fixed-variant": "#2e4577",
+              "inverse-on-surface": "#eaf1ff",
+              "surface-container-high": "#e0e8f9",
+              "on-secondary": "#ffffff",
+              "background": "#f8f9ff",
+              "tertiary-fixed": "#d2e4ff",
+              "primary-container": "#31487a",
+              "outline-variant": "#c5c6d0",
+              "primary": "#183162",
+              "on-secondary-container": "#4c5b7f",
+              "surface-dim": "#d2daea",
+              "tertiary-container": "#244b74",
+              "primary-fixed-dim": "#b0c6ff",
+              "on-primary-container": "#a1b8f1",
+              "surface": "#f8f9ff",
+              "on-tertiary-container": "#97bbeb",
+              "inverse-surface": "#29313d",
+              "outline": "#757780",
+              "error-container": "#ffdad6",
+              "on-surface": "#141c27",
+              "surface-container-highest": "#dbe3f3",
+              "secondary-fixed": "#d9e2ff",
+              "secondary-fixed-dim": "#b6c6ef",
+              "surface-container-low": "#eff4ff",
+              "on-tertiary-fixed-variant": "#224971",
+              "on-error": "#ffffff",
+              "primary-fixed": "#d9e2ff",
+              "surface-container-lowest": "#ffffff",
+              "tertiary-fixed-dim": "#a5c9f9",
+              "secondary": "#4f5e82",
+              "surface-bright": "#f8f9ff",
+              "on-secondary-fixed-variant": "#374669"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar (Shared Component) -->
+<nav class="w-full top-0 sticky z-50 bg-[#f8f9ff] dark:bg-[#141c27]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#192338] dark:text-white">The Curated Academy</span>
+<div class="hidden md:flex gap-6 items-center font-['Manrope'] text-sm tracking-tight font-medium">
+<a class="text-[#183162] dark:text-[#8fb3e2] border-b-2 border-[#183162] dark:border-[#8fb3e2] pb-1" href="#">My Courses</a>
+<a class="text-[#1e2e4f] dark:text-[#d9e1f1] hover:text-[#183162] transition-colors" href="#">Wishlist</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#eff4ff] dark:hover:bg-[#31487a] rounded-lg transition-all text-[#183162] dark:text-[#8fb3e2]">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#eff4ff] dark:hover:bg-[#31487a] rounded-lg transition-all text-[#183162] dark:text-[#8fb3e2]">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="max-w-screen-2xl mx-auto flex flex-col md:flex-row min-h-[calc(100vh-80px)]">
+<!-- Syllabus Sidebar (Left) -->
+<aside class="w-full md:w-80 bg-surface-container-low p-6 flex flex-col gap-6">
+<div class="space-y-2">
+<span class="font-['Manrope'] text-xs tracking-wide uppercase font-semibold text-secondary">Course Progress</span>
+<div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+<div class="bg-[#8FB3E2] h-full" style="width: 45%;"></div>
+</div>
+<div class="flex justify-between items-center font-['Manrope'] text-xs font-medium text-primary">
+<span>45% Completed</span>
+<span>12/28 Lessons</span>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-2">
+<h3 class="font-headline font-bold text-lg text-[#192338] mb-2">Curriculum</h3>
+<!-- Module 1: Completed -->
+<div class="p-3 flex items-center gap-3 rounded-lg opacity-60">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-[#192338]">Module 01: The Grid Foundations</span>
+<span class="text-xs text-secondary">15 mins</span>
+</div>
+</div>
+<!-- Module 2: Completed -->
+<div class="p-3 flex items-center gap-3 rounded-lg opacity-60">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-[#192338]">Module 02: Visual Hierarchy</span>
+<span class="text-xs text-secondary">22 mins</span>
+</div>
+</div>
+<!-- Module 3: Completed -->
+<div class="p-3 flex items-center gap-3 rounded-lg opacity-60">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-[#192338]">Module 03: Modern Typography</span>
+<span class="text-xs text-secondary">30 mins</span>
+</div>
+</div>
+<!-- Module 4: Active -->
+<div class="p-3 flex items-center gap-3 rounded-xl bg-primary-container text-white shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<div class="flex flex-col">
+<span class="text-sm font-bold">Module 04: The Evolution of Grid Systems</span>
+<span class="text-xs opacity-80">18 mins • Now Playing</span>
+</div>
+</div>
+<!-- Upcoming -->
+<div class="p-3 flex items-center gap-3 rounded-lg hover:bg-surface-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-outline">radio_button_unchecked</span>
+<div class="flex flex-col">
+<span class="text-sm font-semibold text-[#192338]">Module 05: Editorial Layouts</span>
+<span class="text-xs text-secondary">25 mins</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Video & Content Area (Center) -->
+<section class="flex-1 bg-surface p-6 md:p-12 overflow-y-auto">
+<!-- Video Player Block -->
+<div class="relative w-full aspect-video rounded-xl overflow-hidden bg-on-background shadow-2xl group">
+<img alt="Design interface with grid lines" class="w-full h-full object-cover opacity-80" data-alt="Modern architectural design with glowing blue grid lines overlaid on a minimalist concrete wall background with soft morning shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANdiRSde3foxM4pQbH3n2o_iet9UCCLq8SUeSYcr19-wf3-w_kvRnDXFzJNfwhzzfe6cBlqRiJwdpgaqffcNfguQoT38AX1m-sHfjCZ-aItPkgoRZcSDxFeeVnCXg_mCbI1hIGvT37YusfYzJ2kT-fphYRiQXzvnIhwp1DFiuZxg5akYtBbupsiD8OryvzI3rM0dcICVOuNzKIGiAsm2COKLCMzdcL81TrfFbmu6ZP_fflkubaBj536UNTANO0WI7fh3iVvevq9I0"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="w-20 h-20 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white scale-100 hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-5xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<!-- Video Controls Overlay -->
+<div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent flex items-center gap-4 text-white">
+<span class="material-symbols-outlined cursor-pointer">pause</span>
+<div class="flex-1 h-1 bg-white/20 rounded-full">
+<div class="w-1/3 h-full bg-[#8FB3E2] rounded-full"></div>
+</div>
+<span class="text-xs font-label">06:12 / 18:00</span>
+<span class="material-symbols-outlined cursor-pointer">volume_up</span>
+<span class="material-symbols-outlined cursor-pointer">fullscreen</span>
+</div>
+</div>
+<!-- Content Header -->
+<div class="mt-8 flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-outline-variant/15 pb-8">
+<div class="max-w-2xl">
+<h1 class="text-3xl font-headline font-extrabold text-[#192338] tracking-tight mb-2">Module 04: The Evolution of Grid Systems</h1>
+<p class="text-secondary leading-relaxed">In this module, we explore the historical transition from traditional print grids to the fluid, responsive digital layouts of the modern Avanzza. We analyze how asymmetry can maintain balance while creating visual tension.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 rounded-lg bg-secondary-container text-primary font-bold text-sm hover:opacity-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span>
+                        Notes
+                    </button>
+<button class="px-6 py-3 rounded-lg bg-primary text-on-primary font-bold text-sm shadow-xl hover:scale-[1.02] transition-all">
+                        Complete Lesson
+                    </button>
+</div>
+</div>
+<!-- Bento Grid: Resources & Discussion -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12">
+<!-- Resources Column -->
+<div class="lg:col-span-1 flex flex-col gap-6">
+<h2 class="font-headline font-bold text-xl text-[#192338]">Learning Materials</h2>
+<div class="bg-[#D9E1F1] p-5 rounded-xl flex flex-col gap-4">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">description</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-[#192338]">Grid_Anatomy.pdf</h4>
+<p class="text-[10px] text-secondary uppercase tracking-widest font-bold">PDF • 4.2 MB</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">link</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-[#192338]">Inspiration Gallery</h4>
+<p class="text-[10px] text-secondary uppercase tracking-widest font-bold">EXTERNAL LINK</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-10 h-10 rounded-lg bg-white flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">folder_zip</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-[#192338]">Figma_Starter_Kit.zip</h4>
+<p class="text-[10px] text-secondary uppercase tracking-widest font-bold">ZIP • 12.8 MB</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Discussion Forum Column -->
+<div class="lg:col-span-2 flex flex-col gap-6">
+<div class="flex justify-between items-center">
+<h2 class="font-headline font-bold text-xl text-[#192338]">Discussion Forum</h2>
+<span class="text-xs font-bold text-primary cursor-pointer hover:underline">View All (42)</span>
+</div>
+<!-- Discussion List -->
+<div class="space-y-6">
+<div class="flex gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-full bg-primary-fixed overflow-hidden flex-shrink-0">
+<img alt="Student avatar" class="w-full h-full object-cover" data-alt="Close up portrait of a smiling young professional woman with warm natural lighting and soft background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHIczlV2WXolGhZ95VXZC0XX5z_sJeOWdjMr0n3pU_eOXtJryrcn3p5UqOjITyRPBvyNTELyWDmQpbDeDR-Mn-8UyAmBeU-O1hOtYjowkGkqrGXjYeGs_NfbbEoi74messoUyhRYUBctYknM-7CZVt7d9VI2rCjSfJvJVq4Z-g61VWo_YSkN5JM-PbKhShuSkalZ_xDs_LZ9f8tMC1lG05-28ZO79oTcgxtGRWRigI0PjOrD6Shm_aw78xBytf7YzrrpqkORdFD9s"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-[#192338]">Julianne Moretti</span>
+<span class="text-[10px] text-outline">2 hours ago</span>
+</div>
+<p class="text-sm text-secondary leading-relaxed">The concept of 'Optical Center' in grid systems is fascinating. Has anyone tried applying this to mobile-first layouts yet?</p>
+<div class="mt-2 flex gap-4">
+<button class="flex items-center gap-1 text-xs font-bold text-primary">
+<span class="material-symbols-outlined text-sm">thumb_up</span> 12
+                                    </button>
+<button class="flex items-center gap-1 text-xs font-bold text-secondary">
+<span class="material-symbols-outlined text-sm">reply</span> Reply
+                                    </button>
+</div>
+</div>
+</div>
+<div class="flex gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed overflow-hidden flex-shrink-0">
+<img alt="Student avatar" class="w-full h-full object-cover" data-alt="Portrait of a young man with glasses and creative aesthetic in a bright indoor setting with clean lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbElRqKVgBeDmRiVWNMfuTk01fzahX3LBQzwTQU8TizXXWQaZfJ3qx4cnFRCUuDGF5tmM7LnXpMTy432zrFDsbDBcJ7G0A-ymNMB6EnT90r_nyEwD9xrnbDSP9QCUqY9XampnJVP1jb1jwfBDJrh5PhKBjqKbp6r331vRTJOFE20-yeDTcvMdXiUWssiFZFgAcAbuN44ipCLnPiUrqEJHePfrSY5S1R9XcDE5cM7-1P5dcw7MIlc06edh8yi_dtdxqziJcR4ZIUXE"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<span class="text-sm font-bold text-[#192338]">Marcus Chen</span>
+<span class="text-[10px] text-outline">5 hours ago</span>
+</div>
+<p class="text-sm text-secondary leading-relaxed">I'm struggling a bit with the gutters on the 12-column example. Should they always be even or can they vary for editorial effect?</p>
+<div class="mt-2 flex gap-4">
+<button class="flex items-center gap-1 text-xs font-bold text-primary">
+<span class="material-symbols-outlined text-sm">thumb_up</span> 8
+                                    </button>
+<button class="flex items-center gap-1 text-xs font-bold text-secondary">
+<span class="material-symbols-outlined text-sm">reply</span> Reply
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Post Input -->
+<div class="mt-4 flex gap-4 items-start border-t border-outline-variant/15 pt-6">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-outline">
+<span class="material-symbols-outlined">person</span>
+</div>
+<div class="flex-1">
+<textarea class="w-full bg-surface-container-lowest border-none rounded-xl text-sm placeholder:text-outline focus:ring-2 focus:ring-primary transition-all p-4 min-h-[100px]" placeholder="Share your thoughts with the Avanzza..."></textarea>
+<div class="mt-2 flex justify-end">
+<button class="px-6 py-2 rounded-lg bg-primary text-white text-xs font-bold shadow-md">Post Comment</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full border-t border-[#c5c6d0]/15 bg-[#f8f9ff] dark:bg-[#141c27]">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-12 py-16 w-full max-w-screen-2xl mx-auto">
+<div>
+<span class="text-lg font-black text-[#192338] dark:text-white block mb-4">The Curated Academy</span>
+<p class="font-['Manrope'] text-xs tracking-wide uppercase font-semibold text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80">
+                    © 2024 The Curated Academy. All rights reserved.
+                </p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 font-['Manrope'] text-xs tracking-wide uppercase font-semibold">
+<a class="text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 hover:text-[#31487a] transition-opacity" href="#">Privacy Policy</a>
+<a class="text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 hover:text-[#31487a] transition-opacity" href="#">Terms of Service</a>
+<a class="text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 hover:text-[#31487a] transition-opacity" href="#">Support</a>
+<a class="text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 hover:text-[#31487a] transition-opacity" href="#">Facebook</a>
+<a class="text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 hover:text-[#31487a] transition-opacity" href="#">Twitter</a>
+<a class="text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 hover:text-[#31487a] transition-opacity" href="#">LinkedIn</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed": "#111b30",
+                        "secondary-fixed-dim": "#b6c6ef",
+                        "surface-variant": "#d8e2ff",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f1f3ff",
+                        "primary-container": "#192338",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#d0daf6",
+                        "secondary-fixed": "#d9e2ff",
+                        "on-tertiary-fixed-variant": "#2e4577",
+                        "on-tertiary-fixed": "#001944",
+                        "outline": "#76777d",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#bcc6e2",
+                        "on-secondary-fixed-variant": "#374669",
+                        "surface-tint": "#545e76",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#e9edff",
+                        "error": "#ba1a1a",
+                        "secondary": "#4f5e82",
+                        "inverse-surface": "#263046",
+                        "on-surface-variant": "#45474d",
+                        "primary-fixed": "#d8e2ff",
+                        "surface": "#f9f9ff",
+                        "on-surface": "#111b30",
+                        "tertiary-fixed": "#d9e2ff",
+                        "on-primary-container": "#808aa4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#081a3b",
+                        "on-background": "#111b30",
+                        "tertiary-fixed-dim": "#b0c6ff",
+                        "secondary-container": "#c4d4fe",
+                        "surface-bright": "#f9f9ff",
+                        "on-tertiary-container": "#748ac0",
+                        "on-error": "#ffffff",
+                        "inverse-primary": "#bcc6e2",
+                        "tertiary-container": "#032152",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#030d21",
+                        "surface-container-high": "#e1e8ff",
+                        "tertiary": "#000c29",
+                        "on-secondary-container": "#4c5b7f",
+                        "background": "#f9f9ff",
+                        "surface-container-highest": "#d8e2ff",
+                        "outline-variant": "#c6c6cd",
+                        "on-primary-fixed-variant": "#3d475d",
+                        "inverse-on-surface": "#edf0ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-white/80 dark:bg-[#192338]/80 backdrop-blur-md shadow-[0px_12px_32px_rgba(17,27,48,0.06)] docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-[#192338] dark:text-[#D9E1F1] tracking-tighter">The Scholarly Editorial</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-[#192338] dark:text-white border-b-2 border-[#31487A] pb-1 font-manrope text-sm font-medium tracking-tight hover:text-[#31487A] transition-colors duration-200" href="#">My Courses</a>
+<a class="text-[#192338]/60 dark:text-[#D9E1F1]/60 font-manrope text-sm font-medium tracking-tight hover:text-[#31487A] transition-colors duration-200" href="#">Wishlist</a>
+<a class="text-[#192338]/60 dark:text-[#D9E1F1]/60 font-manrope text-sm font-medium tracking-tight hover:text-[#31487A] transition-colors duration-200" href="#">Profile</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-[#192338] dark:text-[#D9E1F1]"><span class="material-symbols-outlined">notifications</span></button>
+<button class="p-2 text-[#192338] dark:text-[#D9E1F1]"><span class="material-symbols-outlined">bookmark</span></button>
+<img alt="User profile photo" class="w-8 h-8 rounded-full border-2 border-surface-container-highest" data-alt="professional portrait of a senior academic researcher in a library setting with soft natural window lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1QJtJdZoLstJ-Kh05m5_g7LwkpW95IgxX75hunQwmEjBBBmjA9qazqGdIY4F4w2QyuAFCCfnjfiAjTMOcgAg0Ph6yep1DshyPRkgJkbMHtm047q1xBq_niRlrHz6xWUMRQBuNv8kVkipFiB6ouWzLfNItWytFiKtdQWunErV7KkMmJC0PVSv05JMq2dCo6c7ghcuC3DevmWDLFtpgOfOufl5FAt07fEG35ImOwGgHeFWLNCYTt1AUkiRNtVUWCu37dFRHvjzUG2g"/>
+</div>
+</div>
+<div class="bg-[#f1f3ff] dark:bg-[#1E2E4F] h-[1px] w-full"></div>
+</header>
+<main class="flex-grow flex flex-col md:flex-row max-w-full">
+<!-- SideNavBar (Left: Course Progress & Syllabus) -->
+<aside class="w-full md:w-80 bg-[#f9f9ff] dark:bg-[#192338] flex flex-col shrink-0 border-r border-surface-container-low">
+<div class="p-8">
+<h2 class="text-lg font-black text-[#192338] dark:text-white font-headline mb-2">Curator Avanzza</h2>
+<p class="text-xs text-[#192338]/70 dark:text-[#D9E1F1]/70 font-semibold mb-8">Academic Excellence</p>
+<div class="mb-10">
+<div class="flex justify-between items-end mb-2">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Course Progress</span>
+<span class="text-lg font-bold text-primary">64%</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-[#8FB3E2] rounded-full" style="width: 64%"></div>
+</div>
+</div>
+<nav class="flex flex-col gap-1">
+<div class="text-[10px] font-bold text-on-surface-variant/50 uppercase tracking-[0.2em] mb-4">Syllabus Navigation</div>
+<button class="flex items-center gap-4 py-3 px-4 rounded-xl text-[#192338]/70 dark:text-[#D9E1F1]/70 hover:bg-[#f1f3ff] dark:hover:bg-[#1E2E4F] transition-all group">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+<span class="text-sm font-semibold">Module 01: Foundations</span>
+</button>
+<button class="flex items-center gap-4 py-3 px-4 rounded-xl text-[#192338]/70 dark:text-[#D9E1F1]/70 hover:bg-[#f1f3ff] dark:hover:bg-[#1E2E4F] transition-all group">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+<span class="text-sm font-semibold">Module 02: Typographic Scale</span>
+</button>
+<button class="flex items-center gap-4 py-3 px-4 rounded-xl text-[#192338]/70 dark:text-[#D9E1F1]/70 hover:bg-[#f1f3ff] dark:hover:bg-[#1E2E4F] transition-all group">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+<span class="text-sm font-semibold">Module 03: Color Theory</span>
+</button>
+<button class="flex items-center gap-4 py-4 px-6 bg-[#192338] text-white rounded-xl shadow-lg transform translate-x-2 transition-all">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+<span class="text-sm font-bold">Module 04: Grid Systems</span>
+</button>
+<button class="flex items-center gap-4 py-3 px-4 rounded-xl text-[#192338]/40 dark:text-[#D9E1F1]/40 cursor-not-allowed">
+<span class="material-symbols-outlined text-xl">lock</span>
+<span class="text-sm font-semibold">Module 05: Interaction</span>
+</button>
+</nav>
+</div>
+<div class="mt-auto p-8 flex flex-col gap-4">
+<a class="flex items-center gap-3 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+                </a>
+<a class="flex items-center gap-3 text-sm font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">help_outline</span> Help Center
+                </a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-grow flex flex-col min-w-0 bg-surface">
+<div class="p-8 lg:p-12 space-y-12">
+<!-- Header -->
+<header class="max-w-4xl">
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2 py-0.5 bg-surface-container-highest text-[10px] font-bold tracking-widest text-[#192338] uppercase rounded">Currently Playing</span>
+<span class="h-px w-8 bg-outline-variant/30"></span>
+<span class="text-[10px] font-medium text-on-surface-variant">24:18 remaining</span>
+</div>
+<h1 class="text-4xl lg:text-5xl font-black text-[#192338] tracking-tighter leading-none mb-4 font-headline">
+                        The Evolution of Grid Systems
+                    </h1>
+<p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                        An deep dive into the historical origins of typographic grids and their transition into the digital design landscape.
+                    </p>
+</header>
+<!-- Video Player Section -->
+<section class="relative aspect-video rounded-3xl overflow-hidden bg-primary shadow-2xl group">
+<div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+<button class="w-20 h-20 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:scale-110 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<img class="w-full h-full object-cover opacity-80" data-alt="close up of a high-end designer workstation with a large monitor displaying complex structural grid patterns and architectural blueprints" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8A27LzJwbQTCo1JzcfkHVLcQDEOdwr-d7q1XcjpvV3XmreVQmmI5A7zfbOlCxRJjj8lUtJbXvNUIppL1lw1kz8uH36_ubHDDJo3buz-RoQw6lGyj3Gouv8zEu4qFxuEEaHp3ZovzbJj4PryHlzwvEAQmMXjisSfiGI3XLfIGDW4Omgm6Uw2ObezfrJMH1xMB4ahR3NhUNd6sgtGwjjMKK1QqkD-oX6wNrwduarxFhkkO-BH7lfaD0aIoB2p2ju-zE3DLpT58U6sg"/>
+<!-- Player Controls Overlay (Simplified) -->
+<div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/80 to-transparent">
+<div class="flex items-center gap-4 text-white">
+<span class="material-symbols-outlined cursor-pointer">pause</span>
+<div class="flex-grow h-1 bg-white/20 rounded-full relative">
+<div class="absolute inset-y-0 left-0 bg-[#8FB3E2] w-1/3 rounded-full"></div>
+</div>
+<span class="text-xs font-mono">12:04 / 36:22</span>
+<span class="material-symbols-outlined cursor-pointer">volume_up</span>
+<span class="material-symbols-outlined cursor-pointer">fullscreen</span>
+</div>
+</div>
+</section>
+<!-- Information Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Resources & Forum (Left 8 Columns) -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Tabs for Resources/Forum/Transcripts -->
+<div class="space-y-6">
+<div class="flex gap-8 border-b border-surface-container-low">
+<button class="pb-4 text-sm font-bold text-primary border-b-2 border-primary">Course Resources</button>
+<button class="pb-4 text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors">Student Forum</button>
+<button class="pb-4 text-sm font-semibold text-on-surface-variant hover:text-primary transition-colors">Transcripts</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-6 bg-surface-container-low rounded-2xl flex items-start gap-4 hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="p-3 bg-white rounded-xl shadow-sm group-hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-primary">picture_as_pdf</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-primary mb-1">Grid_Manifesto.pdf</h4>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tight">12.4 MB • Essential Reading</p>
+</div>
+</div>
+<div class="p-6 bg-surface-container-low rounded-2xl flex items-start gap-4 hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<div class="p-3 bg-white rounded-xl shadow-sm group-hover:shadow-md transition-shadow">
+<span class="material-symbols-outlined text-primary">archive</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-primary mb-1">Layout_Templates.zip</h4>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tight">45.8 MB • Project Assets</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Forum Preview -->
+<div class="p-8 bg-surface-container-low rounded-3xl border-2 border-transparent hover:border-surface-container-highest transition-all">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold text-primary">Active Discussion</h3>
+<button class="text-xs font-bold text-[#31487A] hover:underline">View All 128 Comments</button>
+</div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<img alt="Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a young designer with glasses in a creative studio environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfHW_HIpm8lZJlmJt-OZ4oUImS6Rx4sNmqlJN2Xn-WjJPTT2XQg-C1Wzbhn5_c2LNzOxav_K1BHHp_iK9WDG3o7TFlPddYR211-CFPubGJgA30Xhq7tQz2NgIlM8_V78SvNrAQbQjlp9Khf8VPOM7SuQTHlYnXSNICyzK_jn_urSwEq83ZPk-RXgp38MJBvgt_R1RQLRrNjL46b9q8adehBtKR5WkXHCIYmcQ8sEHE8smiej6vAuyu6UXzVAR61Ee5DRZuPJ0HhQ0"/>
+<div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-sm flex-grow">
+<p class="text-sm text-on-surface leading-relaxed">"The transition from 8-column to 12-column logic at minute 15:40 is mind-blowing. Does this apply to mobile viewports as well?"</p>
+<div class="mt-2 flex items-center gap-4 text-[10px] font-bold text-on-surface-variant uppercase">
+<span>Marcus J. • 2h ago</span>
+<button class="hover:text-primary">Reply</button>
+<button class="hover:text-primary">Helpful (12)</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Instructor & Insights (Right 4 Columns) -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Instructor Card -->
+<div class="bg-primary text-white p-8 rounded-3xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-white/10 transition-colors"></div>
+<div class="relative z-10 flex flex-col items-center text-center">
+<img alt="Dr. Elias Vance" class="w-24 h-24 rounded-2xl object-cover mb-4 border-2 border-white/20 shadow-xl" data-alt="middle-aged professor with salt and pepper beard wearing a charcoal turtleneck and tweed blazer looking scholarly and approachable" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyssQGyChkfWDTuT2pvGmO6tLZ70Ak-NuhkfL41BJ-2Fn453fYPnOWZp21zkPW5QzOqYKVK-Hxgm9YQE9FV-bLods7swLzwdVxEfvAYDyag7ZO9t9mqT34psWMAGSEBNPS1EkE47mxtq7t-ksVnBrYx3uNQFbDdyVZR6z72QvUgXyX0gE6iOc6QI3DFL-nX34v-12r61aOpIw6A1_tbgbEKSvWhpb4ztQL5a8Un_7ucolVyQ8y-GdU44cjRY2fbSmblIWKGZKFos4"/>
+<h3 class="text-xl font-bold font-headline mb-1">Dr. Elias Vance</h3>
+<p class="text-xs text-white/60 font-medium uppercase tracking-widest mb-4">Lead Instructor</p>
+<p class="text-sm text-white/80 leading-relaxed mb-6">Principal Researcher in Digital Typography and Grid Systems with 15+ years of academic tenure.</p>
+<button class="w-full py-3 bg-white text-primary rounded-xl font-bold text-xs hover:bg-secondary-fixed transition-all uppercase tracking-widest">Connect on Avanzza</button>
+</div>
+</div>
+<!-- Course Insights -->
+<div class="space-y-6">
+<h3 class="text-sm font-black text-on-surface uppercase tracking-widest px-2">Course Insights</h3>
+<div class="space-y-3">
+<div class="p-5 bg-surface-container-highest rounded-2xl flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">groups</span>
+<span class="text-sm font-semibold text-primary">Students Enrolled</span>
+</div>
+<span class="text-sm font-bold text-primary">12,450</span>
+</div>
+<div class="p-5 bg-surface-container-highest rounded-2xl flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">avg_time</span>
+<span class="text-sm font-semibold text-primary">Avg. Completion</span>
+</div>
+<span class="text-sm font-bold text-primary">82%</span>
+</div>
+<div class="p-5 bg-surface-container-highest rounded-2xl flex justify-between items-center">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">star</span>
+<span class="text-sm font-semibold text-primary">Course Rating</span>
+</div>
+<span class="text-sm font-bold text-primary">4.9/5</span>
+</div>
+</div>
+</div>
+<!-- Featured Quote (Asymmetry) -->
+<div class="pt-8 pl-4 border-l-2 border-surface-container-highest">
+<p class="text-on-surface-variant italic text-sm leading-relaxed">
+                                "A grid is not a cage, but a structure upon which freedom is built."
+                            </p>
+<p class="mt-2 text-[10px] font-bold text-on-surface-variant uppercase">— Massimo Vignelli</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Section -->
+<footer class="bg-[#f1f3ff] dark:bg-[#1E2E4F] text-[#192338] dark:text-[#D9E1F1] w-full py-12 mt-auto">
+<div class="flex flex-col items-center gap-4 text-center w-full px-8">
+<p class="font-manrope text-xs font-normal opacity-70">© 2024 The Scholarly Editorial. All rights reserved.</p>
+<div class="flex gap-6">
+<a class="font-manrope text-xs font-normal opacity-70 hover:opacity-100 transition-opacity no-underline hover:underline" href="#">Privacy Policy</a>
+<a class="font-manrope text-xs font-normal opacity-70 hover:opacity-100 transition-opacity no-underline hover:underline" href="#">Terms of Service</a>
+<a class="font-manrope text-xs font-normal opacity-70 hover:opacity-100 transition-opacity no-underline hover:underline" href="#">Cookie Settings</a>
+</div>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

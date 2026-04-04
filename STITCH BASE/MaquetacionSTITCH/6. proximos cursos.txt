@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#111b30",
+              "secondary-fixed-dim": "#b6c6ef",
+              "surface-variant": "#d8e2ff",
+              "on-secondary": "#ffffff",
+              "surface-container-low": "#f1f3ff",
+              "primary-container": "#192338",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d0daf6",
+              "secondary-fixed": "#d9e2ff",
+              "on-tertiary-fixed-variant": "#2e4577",
+              "on-tertiary-fixed": "#001944",
+              "outline": "#76777d",
+              "error-container": "#ffdad6",
+              "primary-fixed-dim": "#bcc6e2",
+              "on-secondary-fixed-variant": "#374669",
+              "surface-tint": "#545e76",
+              "on-error-container": "#93000a",
+              "surface-container": "#e9edff",
+              "error": "#ba1a1a",
+              "secondary": "#4f5e82",
+              "inverse-surface": "#263046",
+              "on-surface-variant": "#45474d",
+              "primary-fixed": "#d8e2ff",
+              "surface": "#f9f9ff",
+              "on-surface": "#111b30",
+              "tertiary-fixed": "#d9e2ff",
+              "on-primary-container": "#808aa4",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed": "#081a3b",
+              "on-background": "#111b30",
+              "tertiary-fixed-dim": "#b0c6ff",
+              "secondary-container": "#c4d4fe",
+              "surface-bright": "#f9f9ff",
+              "on-tertiary-container": "#748ac0",
+              "on-error": "#ffffff",
+              "inverse-primary": "#bcc6e2",
+              "tertiary-container": "#032152",
+              "on-tertiary": "#ffffff",
+              "primary": "#030d21",
+              "surface-container-high": "#e1e8ff",
+              "tertiary": "#000c29",
+              "on-secondary-container": "#4c5b7f",
+              "background": "#f9f9ff",
+              "surface-container-highest": "#d8e2ff",
+              "outline-variant": "#c6c6cd",
+              "on-primary-fixed-variant": "#3d475d",
+              "inverse-on-surface": "#edf0ff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 flex flex-col bg-[#f9f9ff] dark:bg-[#192338] z-40 hidden md:flex">
+<div class="p-8">
+<h1 class="text-lg font-black text-[#192338] dark:text-white tracking-tighter">Curator Avanzza</h1>
+<p class="text-xs font-manrope font-semibold opacity-60 text-[#192338] dark:text-[#D9E1F1]">Academic Excellence</p>
+</div>
+<nav class="flex flex-col gap-2 pt-8 flex-grow">
+<a class="text-[#192338]/70 dark:text-[#D9E1F1]/70 py-3 px-6 hover:bg-[#f1f3ff] dark:hover:bg-[#1E2E4F] hover:translate-x-1 transition-transform duration-300 flex items-center gap-3 font-manrope text-base font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+                Learning
+            </a>
+<a class="text-[#192338]/70 dark:text-[#D9E1F1]/70 py-3 px-6 hover:bg-[#f1f3ff] dark:hover:bg-[#1E2E4F] hover:translate-x-1 transition-transform duration-300 flex items-center gap-3 font-manrope text-base font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+                Explore
+            </a>
+<a class="bg-[#d8e2ff] dark:bg-[#31487A] text-[#192338] dark:text-white rounded-r-full py-3 px-6 flex items-center gap-3 font-manrope text-base font-semibold transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+                Upcoming
+            </a>
+<a class="text-[#192338]/70 dark:text-[#D9E1F1]/70 py-3 px-6 hover:bg-[#f1f3ff] dark:hover:bg-[#1E2E4F] hover:translate-x-1 transition-transform duration-300 flex items-center gap-3 font-manrope text-base font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+                Categories
+            </a>
+</nav>
+<div class="mt-auto pb-8 flex flex-col gap-2">
+<a class="text-[#192338]/70 dark:text-[#D9E1F1]/70 py-3 px-6 hover:bg-[#f1f3ff] dark:hover:bg-[#1E2E4F] transition-transform duration-300 flex items-center gap-3 font-manrope text-base font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+<a class="text-[#192338]/70 dark:text-[#D9E1F1]/70 py-3 px-6 hover:bg-[#f1f3ff] dark:hover:bg-[#1E2E4F] transition-transform duration-300 flex items-center gap-3 font-manrope text-base font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+                Help
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-grow md:ml-64 flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-white/80 dark:bg-[#192338]/80 backdrop-blur-md text-[#192338] dark:text-[#D9E1F1] font-manrope text-sm font-medium tracking-tight docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-8 py-4 max-w-full shadow-[0px_12px_32px_rgba(17,27,48,0.06)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-[#192338] dark:text-[#D9E1F1] tracking-tighter">The Scholarly Editorial</span>
+<div class="hidden lg:flex items-center gap-6">
+<a class="text-[#192338]/60 dark:text-[#D9E1F1]/60 hover:text-[#31487A] transition-colors duration-200" href="#">My Courses</a>
+<a class="text-[#192338]/60 dark:text-[#D9E1F1]/60 hover:text-[#31487A] transition-colors duration-200" href="#">Wishlist</a>
+<a class="text-[#192338] dark:text-white border-b-2 border-[#31487A] pb-1 hover:text-[#31487A] transition-colors duration-200" href="#">Profile</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="bg-surface-container-low px-4 py-2 rounded-xl flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs w-48" placeholder="Search curated content..." type="text"/>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined cursor-pointer hover:opacity-70 transition-all" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:opacity-70 transition-all" data-icon="bookmark">bookmark</span>
+</div>
+<img alt="User profile photo" class="w-8 h-8 rounded-full border border-outline-variant" data-alt="professional portrait of a scholar in a minimal studio setting with soft side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6wMDybSBSIYtlXGTO_u2aPsylYJcoKGVMVuMHI8NPVgImfvZVIid3LRqa6Q0bpRIcCFaRd6buTMoW4BgZL8UUK0JKZz1bcgxQ89FB8cbTZfmEB3QidfTcRpN_LlBLIBnweKo7U11ZHJjUSJZygDwFrwsdlZfwSbstEOaiJZyhlVzVBbE2JBoxkyCwTfXojnIRHC69tIeU2vrTqvX4Aswl9OuFdd07MaY7hit-hpft01ezKpSnPW9UT_kWD3xfW3U4P7KhzQglNpk"/>
+</div>
+</header>
+<!-- Main Viewport -->
+<div class="px-8 py-12 max-w-7xl mx-auto w-full">
+<!-- Page Title Section -->
+<div class="mb-16">
+<h2 class="text-5xl font-extrabold text-primary tracking-tight mb-4">Próximos Lanzamientos</h2>
+<div class="h-1 w-24 bg-primary"></div>
+</div>
+<!-- Hero Feature: Applied Quantum Mechanics -->
+<section class="relative rounded-xl overflow-hidden mb-16 bg-[#192338] text-white min-h-[500px] flex items-center group">
+<div class="absolute inset-0 z-0">
+<img alt="Quantum mechanics visualization" class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="complex 3d visualization of quantum particle wave functions with ethereal glowing neon lines in deep space blue" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQoKn0NtAHukidsRxwq3O33q13JKeJ6xDk_ip5MZgn8qTFr6rxMudqiVRuOVmwfYIVzlP6745WIfkIvlfCAw0uPRcLE07bKACjkT1lxJFXhmRFLTh34v5I-CQfdhgrZxnPQf3mw_x2mA4yJxETeUAJops0qIJ8BQq2Ixf7LFgN_1ysQes02jGLKrJHLPvvK1uu1l1y7jhOvGoBusxkMMC22x4f-aPSblcbx7G6BPuwHrCCBsvbbIAjxAZXjnRBiq-g6wGA_n-bJ_Y"/>
+<div class="absolute inset-0 bg-gradient-to-r from-[#192338] via-[#192338]/80 to-transparent"></div>
+</div>
+<div class="relative z-10 p-12 lg:p-20 max-w-2xl">
+<span class="inline-block px-3 py-1 bg-[#31487A] text-[#D9E1F1] text-xs font-bold rounded-lg mb-6 tracking-widest uppercase">Destacado</span>
+<h3 class="text-4xl lg:text-6xl font-black mb-6 leading-tight">Mecánica Cuántica Aplicada</h3>
+<p class="text-lg text-[#D9E1F1]/80 mb-8 leading-relaxed">Una inmersión profunda en los principios fundamentales que rigen el universo subatómico y sus aplicaciones revolucionarias en computación y criptografía.</p>
+<div class="flex items-center gap-6">
+<button class="bg-[#D9E1F1] text-[#192338] px-8 py-4 rounded-xl font-bold hover:bg-white transition-colors flex items-center gap-2 shadow-lg">
+                            Reservar mi lugar
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<span class="text-sm font-medium border-l border-white/20 pl-6">Lanzamiento: 14 Octubre 2024</span>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Secondary Releases -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+<!-- Genomic Sequencing -->
+<div class="group flex flex-col bg-surface-container-low rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300">
+<div class="h-48 overflow-hidden">
+<img alt="DNA sequencing" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="highly detailed microscopic view of DNA double helix structure with professional clinical blue lighting and soft particles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYBKd_aJtwz4qg_eAE5w03fSnlFIwe0Po_4CNyO25drMgX0CTax2arzheLY1_Bun1L-kc3PvLo6xSvnIL9IZY9fL1rEVcGNEcZXs27P-wYvpVmxfn7jB3mv8-j_stSeBwKYa9G_cvBoiW7IoK2tePTpIIt54I9DsayWp1RxaegEEJU8PPN973w2y3fqo0LsDXW4ShjLky39CHu1Hey-GU-YrWNoLd-x0bFK1rZeZC1vhb2v7Ug_L9Ih2nBoCMZXk060yRdyeKd35c"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<span class="text-xs font-bold text-secondary uppercase tracking-widest">Biociencia</span>
+<span class="text-xs opacity-60">Nov 2024</span>
+</div>
+<h4 class="text-xl font-bold text-primary mb-3">Genomic Sequencing</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Técnicas avanzadas de mapeo genético y su impacto en la medicina personalizada del siglo XXI.</p>
+<div class="mt-6 flex items-center gap-2 text-primary text-xs font-bold cursor-pointer">
+                            VER DETALLES <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</div>
+</div>
+</div>
+<!-- Black Holes -->
+<div class="group flex flex-col bg-surface-container-low rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300">
+<div class="h-48 overflow-hidden">
+<img alt="Black hole concept" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="artistic rendering of an event horizon of a black hole with light bending and cosmic dust clouds in high contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvmr-C6MB6bHovfaBcR3D62aST-wvNT2Y2hVPCRfCLlXLGa5uaowTunsKpP3v1hGkvSJ9F0s7YVzh-qViidqTq52X_wLm7kwoojVYBQwQkgUiq_h9vrU5ucoprODEJRhyMyMHMWWZkUkX4qldGBanDJ2Zy3qxCiH87jTFzh5AT-zNG-7NxzAOpaKWWCJlNMdyA0la0YZVNvJ8q68NO8XOb7njv2tUiuImwzMLztcQdwP-t5YQbx7wPC0fWluKoxREm_DQMv1WFkEc"/>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-4">
+<span class="text-xs font-bold text-secondary uppercase tracking-widest">Astrofísica</span>
+<span class="text-xs opacity-60">Dic 2024</span>
+</div>
+<h4 class="text-xl font-bold text-primary mb-3">Black Holes</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">Estudio de las singularidades gravitacionales, la dilatación temporal y la termodinámica de los horizontes de eventos.</p>
+<div class="mt-6 flex items-center gap-2 text-primary text-xs font-bold cursor-pointer">
+                            VER DETALLES <span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</div>
+</div>
+</div>
+<!-- Dark Matter (Bonus Item for Grid Balance) -->
+<div class="group flex flex-col bg-[#1E2E4F] rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300 p-8 justify-end relative">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-9xl text-white" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<span class="text-xs font-bold text-[#D9E1F1] uppercase tracking-widest mb-2">Exclusive Access</span>
+<h4 class="text-2xl font-bold text-white mb-4">Specialized Research Avanzza</h4>
+<p class="text-sm text-[#D9E1F1]/70 mb-6">Accede a manuscritos originales y datos de investigación antes del lanzamiento oficial.</p>
+<button class="w-full py-3 border border-[#D9E1F1]/30 text-[#D9E1F1] rounded-lg text-xs font-bold hover:bg-[#D9E1F1] hover:text-[#1E2E4F] transition-all uppercase tracking-widest">Join Waitlist</button>
+</div>
+</div>
+<!-- Request a Topic Section -->
+<section class="bg-surface-container-high rounded-xl p-12 lg:p-20 flex flex-col lg:flex-row items-center gap-16">
+<div class="flex-1">
+<h3 class="text-3xl font-extrabold text-primary mb-6">¿Buscas algo específico?</h3>
+<p class="text-lg text-on-surface-variant mb-8 leading-relaxed">Nuestra editorial se nutre de la curiosidad académica. Si hay un área de investigación que deseas explorar, dínoslo. Nuestro equipo de curadores evaluará la propuesta para futuros lanzamientos.</p>
+<div class="flex flex-wrap gap-4">
+<div class="flex items-center gap-2 text-sm font-semibold text-primary/70">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+                            Revisión por expertos
+                        </div>
+<div class="flex items-center gap-2 text-sm font-semibold text-primary/70">
+<span class="material-symbols-outlined text-primary" data-icon="check_circle">check_circle</span>
+                            Contenido certificado
+                        </div>
+</div>
+</div>
+<div class="flex-1 w-full max-w-md bg-white p-10 rounded-xl shadow-[0px_12px_32px_rgba(17,27,48,0.06)]">
+<h4 class="text-xl font-bold mb-6 text-primary">Request a Topic</h4>
+<form class="flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold uppercase tracking-widest opacity-60">Área de interés</label>
+<input class="bg-surface-container-low border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary-container transition-all" placeholder="Ej. Inteligencia Artificial Ética" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold uppercase tracking-widest opacity-60">Descripción breve</label>
+<textarea class="bg-surface-container-low border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary-container transition-all" placeholder="¿Qué te gustaría aprender?" rows="3"></textarea>
+</div>
+<button class="bg-primary text-white py-4 rounded-xl font-bold text-sm tracking-widest uppercase hover:opacity-90 transition-opacity">
+                            Enviar Propuesta
+                        </button>
+</form>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="bg-[#f1f3ff] dark:bg-[#1E2E4F] text-[#192338] dark:text-[#D9E1F1] font-manrope text-xs font-normal opacity-70 w-full py-12 mt-auto flex flex-col items-center gap-4 text-center w-full px-8">
+<p>© 2024 The Scholarly Editorial. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="no-underline hover:opacity-100 transition-opacity" href="#">Privacy Policy</a>
+<a class="no-underline hover:opacity-100 transition-opacity" href="#">Terms of Service</a>
+<a class="no-underline hover:opacity-100 transition-opacity" href="#">Cookie Settings</a>
+</div>
+</footer>
+</main>
+<!-- Contextual FAB (Only on main dashboard-like screens) -->
+<button class="fixed bottom-8 right-8 bg-[#192338] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 flex items-center gap-2 pr-6">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-xs font-bold uppercase tracking-widest">Chat with Curator</span>
+</button>
+</body></html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explorar Cursos | The Curated Academy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#44464f",
+                        "inverse-primary": "#b0c6ff",
+                        "on-primary-fixed": "#001944",
+                        "tertiary": "#04345c",
+                        "surface-variant": "#dbe3f3",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#081a3b",
+                        "on-tertiary-fixed": "#001c37",
+                        "on-background": "#141c27",
+                        "secondary-container": "#c4d4fe",
+                        "surface-container": "#e6eefe",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#475d91",
+                        "on-primary-fixed-variant": "#2e4577",
+                        "inverse-on-surface": "#eaf1ff",
+                        "surface-container-high": "#e0e8f9",
+                        "on-secondary": "#ffffff",
+                        "background": "#f8f9ff",
+                        "tertiary-fixed": "#d2e4ff",
+                        "primary-container": "#31487a",
+                        "outline-variant": "#c5c6d0",
+                        "primary": "#183162",
+                        "on-secondary-container": "#4c5b7f",
+                        "surface-dim": "#d2daea",
+                        "tertiary-container": "#244b74",
+                        "primary-fixed-dim": "#b0c6ff",
+                        "on-primary-container": "#a1b8f1",
+                        "surface": "#f8f9ff",
+                        "on-tertiary-container": "#97bbeb",
+                        "inverse-surface": "#29313d",
+                        "outline": "#757780",
+                        "error-container": "#ffdad6",
+                        "on-surface": "#141c27",
+                        "surface-container-highest": "#dbe3f3",
+                        "secondary-fixed": "#d9e2ff",
+                        "secondary-fixed-dim": "#b6c6ef",
+                        "surface-container-low": "#eff4ff",
+                        "on-tertiary-fixed-variant": "#224971",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#d9e2ff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#a5c9f9",
+                        "secondary": "#4f5e82",
+                        "surface-bright": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#374669"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(248, 249, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-fixed">
+<!-- TopNavBar Navigation Shell -->
+<header class="w-full top-0 sticky z-50 glass-nav">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#192338] dark:text-white">The Curated Academy</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="font-['Manrope'] text-sm tracking-tight font-medium text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 transition-colors" href="#">My Courses</a>
+<a class="font-['Manrope'] text-sm tracking-tight font-medium text-[#183162] dark:text-[#8fb3e2] border-b-2 border-[#183162] dark:border-[#8fb3e2] pb-1" href="#">Wishlist</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<span class="material-symbols-outlined text-[#183162] dark:text-[#8fb3e2] p-2 hover:bg-[#eff4ff] dark:hover:bg-[#31487a] rounded-lg transition-all cursor-pointer">notifications</span>
+</div>
+<div class="flex items-center gap-2 p-1 pl-3 bg-surface-container-low rounded-full group cursor-pointer hover:bg-surface-container transition-all">
+<span class="text-xs font-semibold text-primary">Academy Member</span>
+<span class="material-symbols-outlined text-primary bg-white rounded-full p-1" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-screen-2xl mx-auto px-8 py-12">
+<!-- Hero & Search Section -->
+<section class="mb-16">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="max-w-2xl">
+<h1 class="text-5xl font-extrabold text-[#192338] tracking-tight mb-4">Explorar Cursos</h1>
+<p class="text-lg text-secondary leading-relaxed">Discover a world of curated knowledge. Master new skills through our studio-quality asynchronous learning experiences.</p>
+</div>
+<div class="w-full md:w-96">
+<div class="relative">
+<input class="w-full bg-[#d9e1f1] border-none rounded-xl py-4 pl-12 pr-4 text-primary placeholder:text-primary/50 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search for courses..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary" data-icon="search">search</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Category Filters -->
+<section class="mb-12">
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-2 rounded-full bg-primary text-white font-medium text-sm transition-all hover:shadow-lg">All Categories</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-low text-primary-container font-medium text-sm hover:bg-secondary-container transition-all">Design</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-low text-primary-container font-medium text-sm hover:bg-secondary-container transition-all">Programming</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-low text-primary-container font-medium text-sm hover:bg-secondary-container transition-all">Business</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-low text-primary-container font-medium text-sm hover:bg-secondary-container transition-all">Photography</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-low text-primary-container font-medium text-sm hover:bg-secondary-container transition-all">Architecture</button>
+</div>
+</section>
+<!-- Course Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-24">
+<!-- Course Card 1 -->
+<div class="group flex flex-col bg-[#d9e1f1] rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="minimalist architectural model in a clean white studio with soft dramatic shadows and professional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQu67mPLYCe_sb2DLsWmzmwqSQ3XK1XKsbPRfKA8b406tVVX4gnlJpBoVNq4bfA76t4iYB7T8j1Calujey4-imqMcLI8yYPyrFWA9xlDU6wGN-pN0wxkQSx1I759OefFAeH7q3VW5KzM5RIOUwo2QSjFx6z2mQNyxB087_nQ5gyz9zPC7sDc0M-G-cVQT3moFQey3Es5-r6EtxPDz4H9s5mgIbxkfnLHa_xHz0nwI6soIjz9g6rNd5jQh7cbO3jflinz9FSomI2PY"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-primary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-[#1e2e4f]">Design</span>
+<span class="text-primary font-bold">$129.00</span>
+</div>
+<h3 class="text-xl font-bold text-[#192338] mb-4 leading-tight">Mastering Structural Minimalism in Modern Design</h3>
+<div class="mt-auto pt-6 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="schedule">schedule</span>
+<span class="text-xs text-secondary font-medium">12 Modules</span>
+</div>
+<button class="px-5 py-2.5 bg-[#31487a] text-white text-sm font-bold rounded-lg hover:bg-[#183162] transition-colors">Enroll</button>
+</div>
+</div>
+</div>
+<!-- Course Card 2 -->
+<div class="group flex flex-col bg-[#d9e1f1] rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="high-end coding setup with mechanical keyboard and code snippets visible on a vertical screen in a moody evening light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXP918vP41CfQGJmnFMtawhY_HYio485LPN2H3J1KU7lRpOYDtJzD55BUhWSNTTPefJgiDNq5j04wBt35PVrk9tVwlPhb9JKLjmwmywyZHTocFn5RoQjpNZTzC0nYF8AKtJS9WBzfsa3iPiusBVknCgruXheUnP0Tk0-13KTzStb47awVO9znwNI8d1VmhuF265xeF3CTMj0YjZITx8hvthGi30txjkuiPQZ8N8VCDHKMmBeWA6dPxHD10YEVjyGsdeej3dVu0ioc"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-primary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-[#1e2e4f]">Programming</span>
+<span class="text-primary font-bold">$199.00</span>
+</div>
+<h3 class="text-xl font-bold text-[#192338] mb-4 leading-tight">Advanced System Architecture with Rust</h3>
+<div class="mt-auto pt-6 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="schedule">schedule</span>
+<span class="text-xs text-secondary font-medium">24 Modules</span>
+</div>
+<button class="px-5 py-2.5 bg-[#31487a] text-white text-sm font-bold rounded-lg hover:bg-[#183162] transition-colors">Enroll</button>
+</div>
+</div>
+</div>
+<!-- Course Card 3 -->
+<div class="group flex flex-col bg-[#d9e1f1] rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="clean desk with a luxury fountain pen and a high-end notebook on a thick white marble slab in bright natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA1uQ03ZbJ6Rg7Hhtae9ltJKFFKvhcaYv2Hel__-LtH0VSGgtY7U_PiikPxFiH5ZTSj7VeyD6Vq25vfG8MYwOzmiRPHio3R-G7OznDe-ga211nH-oho7AhBr_ssDW15iCwStm_RphOIt5GYxgBlT9kBsojJKzNWj6pqfCiL6vW89iuz_0Tvdw5v2g-7MBolcrVwGzGvmjIVuF63lfPWsDTAKH-66Mi9UM_A7bZ4MkazdHtCHbegIUd_rQpoXrN_fvB_viDXmL2tN8"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-primary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-[#1e2e4f]">Business</span>
+<span class="text-primary font-bold">$149.00</span>
+</div>
+<h3 class="text-xl font-bold text-[#192338] mb-4 leading-tight">Strategic Thinking for New Era Ventures</h3>
+<div class="mt-auto pt-6 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="schedule">schedule</span>
+<span class="text-xs text-secondary font-medium">18 Modules</span>
+</div>
+<button class="px-5 py-2.5 bg-[#31487a] text-white text-sm font-bold rounded-lg hover:bg-[#183162] transition-colors">Enroll</button>
+</div>
+</div>
+</div>
+<!-- Course Card 4 -->
+<div class="group flex flex-col bg-[#d9e1f1] rounded-xl overflow-hidden hover:translate-y-[-4px] transition-all duration-300">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="professional camera lens on a wooden desk with beautiful warm bokeh lights in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuxmM40bUegB7ij03QuIn53LmCNPGflv28PNxaQm4ESW2MZXhT811zYYfYJv2kOh9IDeJFtM3yY1HJUjTtFvCl9ZTDfhUn18YLrcVI_SESWsf9HB6dhE27Jft490wPxclNG_ni2_Sqp30vVkp8t9MINkqsPzaMGprelPi-ShD6nKhtu5Btc2dkApqiIuy5x_k6zUXHAhUd0gcgqf29MZGZb60H_8JWyfEAxdi59jaPk8siOd1QlEvs01taAGEeH0NYdq8l4yMqxaE"/>
+<button class="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-primary hover:text-error transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold uppercase tracking-widest text-[#1e2e4f]">Creative</span>
+<span class="text-primary font-bold">$89.00</span>
+</div>
+<h3 class="text-xl font-bold text-[#192338] mb-4 leading-tight">Visual Storytelling through Digital Photography</h3>
+<div class="mt-auto pt-6 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="schedule">schedule</span>
+<span class="text-xs text-secondary font-medium">10 Modules</span>
+</div>
+<button class="px-5 py-2.5 bg-[#31487a] text-white text-sm font-bold rounded-lg hover:bg-[#183162] transition-colors">Enroll</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Your Wishlist Section -->
+<section class="pt-16 border-t border-outline-variant/15">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-3xl font-black text-[#192338] tracking-tight">Your Wishlist</h2>
+<p class="text-sm text-secondary mt-1">Courses you've marked for future study.</p>
+</div>
+<button class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                    View All <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Wishlist Item 1 -->
+<div class="flex items-center gap-6 p-4 bg-surface-container-lowest rounded-xl hover:bg-surface-container-low transition-all">
+<div class="w-24 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="vibrant abstract digital paint strokes in blue and lavender hues with textured canvas details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLtXrd7O1niY3OeH5px5CHMmSNzk_UyjKFzHnCZmOphYra-_GPdwOQh9Sw9eLUfNVkihmNlGYoctq-Vkpq5hgH5KqhuyVAWsHEz02STMb66MaQixgb4UJ33-5Sbu7KuZUrTrJAMd3ZPL8E3HAYgEzllRiUBY5j7MmTqFw0KlceIo2tQAtXzsUS5HLVxJ8Q_gi2v5W5xOae0MhSeYpshWL8on602NaOAbA9vuk-qQh6z0QCxoREv2qmMxtXg7bkERCfYsHbJw0jLeo"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-[#192338]">The Art of Editorial Typography</h4>
+<p class="text-xs text-secondary font-medium">Added 2 days ago</p>
+</div>
+<div class="flex items-center gap-8">
+<span class="text-primary font-bold">$75.00</span>
+<div class="flex gap-2">
+<button class="p-2 text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+<button class="px-4 py-2 bg-secondary-container text-primary font-bold text-xs rounded-lg hover:bg-primary-fixed transition-colors">Add to Cart</button>
+</div>
+</div>
+</div>
+<!-- Wishlist Item 2 -->
+<div class="flex items-center gap-6 p-4 bg-surface-container-lowest rounded-xl hover:bg-surface-container-low transition-all">
+<div class="w-24 h-16 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="a minimalist workspace with a single designer chair and a large window overlooking a calm city morning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlI78eO0nw5BO_72CSPAL_a7Z1bNmbNEvM6udj4346-Pq2qiZBmYNKOskk36etfXtImu5UVPd6SOV5IKgC-EijNEOvaRofxw8UnXljk_02Kem02fSmDLlMSaZu5RgEWwePnzKZ6J6iGZwwDD3cUYGEvf3FJNxmVIguuJ8LzTj1COwfnYg-1_uY6C-RZ4eZaZJFNE77hkJLfrpVZE72Cz2iAK1Zz-yrA83CmQEQJ3qHIAAVeULPSSjWX7Ka__ADNG-82cwHE2mBcBw"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-bold text-[#192338]">Principles of Modern Interior Architecture</h4>
+<p class="text-xs text-secondary font-medium">Added 5 days ago</p>
+</div>
+<div class="flex items-center gap-8">
+<span class="text-primary font-bold">$159.00</span>
+<div class="flex gap-2">
+<button class="p-2 text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+<button class="px-4 py-2 bg-secondary-container text-primary font-bold text-xs rounded-lg hover:bg-primary-fixed transition-colors">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full border-t border-[#c5c6d0]/15 bg-[#f8f9ff] dark:bg-[#141c27]">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-12 py-16 w-full max-w-screen-2xl mx-auto">
+<div class="flex flex-col gap-4">
+<span class="text-lg font-black text-[#192338] dark:text-white">The Curated Academy</span>
+<p class="text-xs font-['Manrope'] tracking-wide uppercase font-semibold text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 leading-relaxed max-w-xs">
+                    Elevating the standard of asynchronous education through editorial design and pedagogical precision.
+                </p>
+<p class="text-[10px] text-outline mt-4 font-bold tracking-widest">© 2024 THE CURATED ACADEMY. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-3">
+<h5 class="font-['Manrope'] text-xs tracking-wide uppercase font-semibold text-[#183162] font-bold">Resources</h5>
+<a class="text-xs text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 hover:text-[#31487a] transition-opacity" href="#">Support</a>
+<a class="text-xs text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 hover:text-[#31487a] transition-opacity" href="#">Terms of Service</a>
+<a class="text-xs text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 hover:text-[#31487a] transition-opacity" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-3">
+<h5 class="font-['Manrope'] text-xs tracking-wide uppercase font-semibold text-[#183162] font-bold">Connect</h5>
+<a class="text-xs text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 hover:text-[#31487a] transition-opacity" href="#">LinkedIn</a>
+<a class="text-xs text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 hover:text-[#31487a] transition-opacity" href="#">Facebook</a>
+<a class="text-xs text-[#1e2e4f] dark:text-[#d9e1f1] opacity-80 hover:opacity-100 hover:text-[#31487a] transition-opacity" href="#">Twitter</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
