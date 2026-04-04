@@ -920,29 +920,51 @@
             slider.style.width = half + 'px';
         });
 
-        document.getElementById('login-form').addEventListener('submit', async (e) => {
+        document.getElementById('login-form').addEventListener('submit', (e) => {
             e.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const errorDiv = document.getElementById('error-message');
 
-            try {
-                const response = await fetch('/api/login', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password, type: currentMode })
-                });
-                const data = await response.json();
-                if (data.success) {
-                    window.location.href = '/dashboard.html';
-                } else {
-                    errorDiv.style.display = 'block';
-                }
-            } catch (err) {
-                errorDiv.innerText = 'Error de conexión con el servidor';
+            // Static credentials for Firebase Hosting (Demo)
+            const MOCK_USER = "admin@avanzza.com";
+            const MOCK_PASS = "avanzza123";
+
+            if (email === MOCK_USER && password === MOCK_PASS) {
+                // Simulate Session in LocalStorage
+                const userData = {
+                    email: email,
+                    type: currentMode,
+                    loginTime: Date.now()
+                };
+                localStorage.setItem('avanzza_user', JSON.stringify(userData));
+                
+                console.log(`[Success] Static Login for ${currentMode}: ${email}`);
+                window.location.href = 'dashboard.html';
+            } else {
+                console.log(`[Failed] Invalid static login attempt for ${email}`);
+                errorDiv.innerText = 'Identidad no verificada';
                 errorDiv.style.display = 'block';
+                
+                // Add a shake effect if you want to be extra premium
+                const form = document.getElementById('login-form');
+                form.style.animation = 'none';
+                void form.offsetWidth;
+                form.style.animation = 'shake 0.4s ease';
             }
         });
+
+        // Simple shake animation for errors
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+
     </script>
 </body>
 
