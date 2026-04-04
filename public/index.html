@@ -1,300 +1,924 @@
 <!DOCTYPE html>
-<html class="light" lang="es">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Avanzza UMG</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
-        rel="stylesheet" />
+    <title>Avanzza UMG — Ingreso</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap"
         rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#192338",
-                        "secondary": "#31487A",
-                        "surface": "#f9f9ff",
-                        "surface-container-low": "#f1f3ff",
-                        "surface-container-highest": "#d8e2ff",
-                        "surface-container-lowest": "#ffffff",
-                        "on-surface": "#111b30",
-                        "accent": "#8FB3E2",
-                    },
-                    fontFamily: {
-                        "headline": ["Manrope", "sans-serif"],
-                        "body": ["Manrope", "sans-serif"],
-                    },
-                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
-                },
-            },
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300,0&display=swap"
+        rel="stylesheet" />
     <style>
+        :root {
+            --primary: #192338;
+            --secondary: #1E2E4F;
+            --tertiary: #31487A;
+            --neutral: #192338;
+            --accent-blue: #8FB3E2;
+            --surface: #f0f4fb;
+            --surface-card: #ffffff;
+            --text-main: #192338;
+            --text-muted: rgba(25, 35, 56, 0.45);
+            --text-hint: rgba(25, 35, 56, 0.25);
+            --border-soft: rgba(25, 35, 56, 0.07);
+            --border-mid: rgba(25, 35, 56, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             font-family: 'Manrope', sans-serif;
-            background-color: #f9f9ff;
-            color: #111b30;
-            transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.6s ease;
+            background: var(--surface);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            transition: background 0.5s ease;
         }
 
-        /* Responsive vertical spacing for shorter screens */
-        @media (max-height: 850px) {
-            main {
-                padding-top: 2rem !important;
-                padding-bottom: 0px !important;
-            }
-
-            .editorial-title {
-                font-size: 1.5rem !important;
-            }
-
-            .bg-surface-container-lowest {
-                padding: 1.5rem !important;
-                border-radius: 2rem !important;
-            }
-
-            footer {
-                padding-top: 1.5rem !important;
-                padding-bottom: 1.5rem !important;
-                gap: 1rem !important;
-            }
-
-            .material-symbols-outlined {
-                font-size: 1.25rem !important;
-            }
+        body.catedratico {
+            --surface: #0e1828;
+            --surface-card: #192338;
+            --text-main: #e8edf7;
+            --text-muted: rgba(232, 237, 247, 0.5);
+            --text-hint: rgba(232, 237, 247, 0.25);
+            --border-soft: rgba(143, 179, 226, 0.08);
+            --border-mid: rgba(143, 179, 226, 0.15);
         }
 
-        @media (max-height: 700px) {
-            main {
-                transform: scale(0.9);
-                transform-origin: top center;
-                margin-bottom: -40px;
-            }
-
-            footer {
-                transform: scale(0.9);
-                transform-origin: bottom center;
-            }
+        /* ── LEFT PANEL ── */
+        .left-panel {
+            position: relative;
+            background: var(--primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 3rem;
+            overflow: hidden;
         }
 
-        /* Catedrático Theme Overrides */
-        body.catedratico-theme {
-            background-color: #192338;
+        .left-panel::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(49, 72, 122, 0.6) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .left-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 60%;
+            height: 60%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(143, 179, 226, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .brand {
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-logo {
+            width: 52px;
+            height: 52px;
+            background: rgba(143, 179, 226, 0.15);
+            border-radius: 14px;
+            border: 1px solid rgba(143, 179, 226, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .brand-logo svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--accent-blue);
+        }
+
+        .brand-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            font-style: italic;
+            color: #ffffff;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .brand-tagline {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(143, 179, 226, 0.6);
+        }
+
+        .left-illustration {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        .illustration-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .grid-card {
+            border-radius: 10px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .grid-card.big {
+            grid-column: span 2;
+            background: rgba(143, 179, 226, 0.08);
+            border: 1px solid rgba(143, 179, 226, 0.12);
+        }
+
+        .grid-card.accent {
+            background: rgba(49, 72, 122, 0.6);
+            border: 1px solid rgba(143, 179, 226, 0.15);
+        }
+
+        .grid-card.dark {
+            background: rgba(14, 24, 40, 0.8);
+            border: 1px solid rgba(143, 179, 226, 0.08);
+        }
+
+        .grid-card.light {
+            background: rgba(143, 179, 226, 0.06);
+            border: 1px solid rgba(143, 179, 226, 0.1);
+        }
+
+        .card-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .card-dot.blue {
+            background: var(--accent-blue);
+        }
+
+        .card-dot.dim {
+            background: rgba(143, 179, 226, 0.3);
+        }
+
+        .card-line {
+            height: 3px;
+            border-radius: 2px;
+            background: rgba(143, 179, 226, 0.15);
+        }
+
+        .card-line.fill {
+            background: var(--accent-blue);
+            width: 70%;
+        }
+
+        .card-line.fill2 {
+            background: rgba(49, 72, 122, 0.8);
+            width: 45%;
+        }
+
+        .card-stat {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1;
+        }
+
+        .card-sublabel {
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(143, 179, 226, 0.5);
+        }
+
+        .left-bottom {
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .quote-author {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(143, 179, 226, 0.5);
+        }
+
+        .divider-line {
+            width: 2rem;
+            height: 1px;
+            background: rgba(143, 179, 226, 0.3);
+            margin-bottom: 0.75rem;
+        }
+
+        /* ── RIGHT PANEL ── */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 3rem;
+            background: transparent;
+            overflow-y: auto;
+        }
+
+        .right-top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mode-pill {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .theme-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--surface-card);
+            border: 1px solid var(--border-mid);
+            border-radius: 50px;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .theme-badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--tertiary);
+            transition: background 0.3s ease;
+        }
+
+        body.catedratico .theme-badge .dot {
+            background: var(--accent-blue);
+        }
+
+        .login-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .login-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .login-eyebrow {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--tertiary);
+            margin-bottom: 0.75rem;
+            transition: color 0.4s;
+        }
+
+        body.catedratico .login-eyebrow {
+            color: var(--accent-blue);
+        }
+
+        .login-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 3rem;
+            font-style: italic;
+            color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 0.75rem;
+        }
+
+        .login-subtitle {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Toggle */
+        .toggle-wrap {
+            background: var(--surface-card);
+            border: 1px solid var(--border-mid);
+            border-radius: 12px;
+            padding: 4px;
+            display: flex;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            border: none;
+            background: transparent;
+            color: var(--text-hint);
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+            transition: color 0.25s ease;
+            border-radius: 9px;
+        }
+
+        .toggle-btn.active {
+            color: var(--text-main);
+        }
+
+        body.catedratico .toggle-btn.active {
             color: #ffffff;
         }
 
-        body.catedratico-theme .bg-surface-container-lowest {
-            background-color: #1e2e4f;
+        .toggle-slider {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            height: calc(100% - 8px);
+            width: calc(50% - 4px);
+            background: var(--primary);
+            border-radius: 9px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        body:not(.catedratico) .toggle-slider {
+            background: var(--primary);
+        }
+
+        body.catedratico .toggle-slider {
+            background: var(--tertiary);
+            transform: translateX(100%);
+        }
+
+        /* Fields */
+        .field-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .field-label {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            padding-left: 0.25rem;
+        }
+
+        .field-wrap {
+            position: relative;
+        }
+
+        .field-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: var(--text-hint);
+            transition: color 0.2s;
+            pointer-events: none;
+            font-family: 'Material Symbols Outlined';
+            font-weight: 300;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .field-input {
+            width: 100%;
+            padding: 0.9rem 1rem 0.9rem 2.9rem;
+            background: var(--surface-card);
+            border: 1px solid var(--border-mid);
+            border-radius: 10px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .field-input::placeholder {
+            color: var(--text-hint);
+            font-weight: 500;
+        }
+
+        .field-input:focus {
+            border-color: var(--tertiary);
+            background: var(--surface-card);
+            box-shadow: 0 0 0 3px rgba(49, 72, 122, 0.08);
+        }
+
+        body.catedratico .field-input:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(143, 179, 226, 0.1);
+        }
+
+        .field-wrap:focus-within .field-icon {
+            color: var(--tertiary);
+        }
+
+        body.catedratico .field-wrap:focus-within .field-icon {
+            color: var(--accent-blue);
+        }
+
+        /* Error */
+        .error-msg {
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #d84040;
+            text-align: center;
+            padding: 0.6rem;
+            border-radius: 8px;
+            background: rgba(216, 64, 64, 0.06);
+            border: 1px solid rgba(216, 64, 64, 0.15);
+            display: none;
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
             color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 0.75rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        body.catedratico-theme .text-primary {
-            color: #ffffff;
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--tertiary) 0%, var(--primary) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        body.catedratico-theme .text-primary\/40,
-        body.catedratico-theme .text-primary\/60,
-        body.catedratico-theme .text-primary\/30 {
-            color: rgba(217, 225, 241, 0.4);
+        .btn-primary:hover::before {
+            opacity: 1;
         }
 
-        body.catedratico-theme .bg-surface-container-low {
-            background-color: rgba(255, 255, 255, 0.05);
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(25, 35, 56, 0.2);
         }
 
-        body.catedratico-theme .signature-gradient {
-            background: linear-gradient(135deg, #ffffff 0%, #d8e2ff 100%);
-            color: #192338;
+        .btn-primary:active {
+            transform: translateY(0) scale(0.99);
         }
 
-        body.catedratico-theme #toggle-bg {
-            background-color: #192338;
+        .btn-primary span {
+            position: relative;
+            z-index: 1;
         }
 
-        body.catedratico-theme input {
-            color: #ffffff;
+        body.catedratico .btn-primary {
+            background: var(--tertiary);
         }
 
-        .editorial-title {
-            letter-spacing: -0.02em;
+        .btn-secondary {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background: var(--surface-card);
+            color: var(--text-muted);
+            border: 1px solid var(--border-mid);
+            border-radius: 10px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            transition: all 0.2s ease;
         }
 
-        .deep-sea-shadow {
-            box-shadow: 0px 12px 32px rgba(17, 27, 48, 0.06);
-            transition: box-shadow 0.6s ease;
+        .btn-secondary:hover {
+            border-color: rgba(49, 72, 122, 0.25);
+            color: var(--text-main);
+            transform: translateY(-1px);
         }
 
-        body.catedratico-theme .deep-sea-shadow {
-            box-shadow: 0px 24px 48px rgba(0, 0, 0, 0.4);
+        .btn-secondary img {
+            width: 14px;
+            height: 14px;
+            opacity: 0.5;
+            filter: grayscale(1);
         }
 
-        .signature-gradient {
-            background: linear-gradient(135deg, #192338 0%, #31487A 100%);
-            transition: all 0.6s ease;
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.25rem 0;
+        }
+
+        .divider-bar {
+            flex: 1;
+            height: 1px;
+            background: var(--border-soft);
+        }
+
+        .divider-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-hint);
+        }
+
+        /* Footer */
+        .right-footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .social-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--surface-card);
+            border: 1px solid var(--border-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .social-btn:hover {
+            border-color: var(--tertiary);
+            color: var(--tertiary);
+            transform: translateY(-2px);
+        }
+
+        .social-btn svg,
+        .social-btn .material-symbols-outlined {
+            font-size: 16px;
+        }
+
+        .copyright {
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-hint);
+            text-align: center;
+        }
+
+        /* Animated accent line */
+        .accent-strip {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--tertiary), var(--accent-blue), var(--tertiary), var(--primary));
+            background-size: 200% 100%;
+            animation: shimmer 4s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                grid-template-columns: 1fr;
+            }
+
+            .left-panel {
+                display: none;
+            }
+
+            .right-panel {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        /* Page entry animation */
+        .right-panel {
+            animation: fadeSlide 0.6s ease both;
+        }
+
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .login-container>* {
+            animation: fadeSlide 0.5s ease both;
+        }
+
+        .login-container>*:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .login-container>*:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .login-container>*:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .login-container>*:nth-child(4) {
+            animation-delay: 0.25s;
+        }
+
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 20px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
         }
     </style>
-
 </head>
 
-<body
-    class="selection:bg-accent/30 selection:text-primary min-h-screen flex flex-col items-center justify-between py-8 relative overflow-x-hidden overflow-y-auto">
-    <!-- Ambient Background Elements -->
-    <div
-        class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-surface-container-low rounded-full blur-[120px] opacity-50">
-    </div>
-    <div
-        class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-surface-container-highest rounded-full blur-[120px] opacity-30">
-    </div>
+<body>
 
-    <main class="relative z-10 w-full max-w-[420px] p-6 flex flex-col gap-8">
-        <div class="text-center mb-0">
-            <img src="assets/Logo.jpeg" alt="Avanzza UMG" class="h-16 mx-auto mb-4 hover:scale-105 transition-transform duration-500">
-            <p class="text-[12px] tracking-[0.4em] opacity-40 uppercase font-bold text-primary">La plataforma digital de
-                enseñanza UMG</p>
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+        <div class="brand">
+            <div class="brand-logo">
+                <img src="assets/Logo.jpeg" alt="Avanzza UMG" style="width: 100%; height: 100%; object-fit: contain; border-radius: 12px;">
+            </div>
+            <div class="brand-name">Avanzza</div>
+            <div class="brand-tagline">Universidad Mariano Gálvez</div>
         </div>
 
-        <div class="bg-surface-container-lowest p-8 md:p-10 rounded-[2.5rem] deep-sea-shadow space-y-6">
-            <header>
-                <h2 class="text-4xl font-extrabold text-primary leading-none editorial-title mb-4 italic">Ingreso</h2>
-                <p class="text-sm text-primary/40 font-medium leading-relaxed">Bienvenido al archivo digital de
-                    excelencia académica.</p>
-            </header>
-
-            <form id="login-form" class="space-y-6">
-                <!-- User Type Toggle -->
-                <div class="p-1 bg-surface-container-low rounded-2xl flex relative">
-                    <button type="button" id="toggle-estudiante"
-                        class="flex-1 py-2 text-[10px] font-black uppercase tracking-widest z-10 transition-colors text-primary"
-                        onclick="toggleUserType('estudiante')">Estudiante</button>
-                    <button type="button" id="toggle-catedratico"
-                        class="flex-1 py-2 text-[10px] font-black uppercase tracking-widest z-10 transition-colors text-primary/40"
-                        onclick="toggleUserType('catedratico')">Catedrático</button>
-                    <div id="toggle-bg"
-                        class="absolute top-1 left-1 bottom-1 w-[calc(50%-4px)] bg-surface-container-lowest rounded-xl deep-sea-shadow transition-transform duration-300">
+        <div class="left-illustration">
+            <div class="illustration-grid">
+                <div class="grid-card big">
+                    <div class="card-sublabel">Rendimiento</div>
+                    <div class="card-stat">94%</div>
+                    <div class="card-line fill"></div>
+                    <div class="card-line" style="width:55%"></div>
+                </div>
+                <div class="grid-card accent">
+                    <div class="card-dot blue"></div>
+                    <div class="card-line fill" style="width:100%;margin-top:auto"></div>
+                </div>
+                <div class="grid-card dark">
+                    <div class="card-sublabel">Cursos</div>
+                    <div class="card-stat">12</div>
+                </div>
+                <div class="grid-card light">
+                    <div class="card-sublabel">Notas</div>
+                    <div class="card-stat">A+</div>
+                </div>
+                <div class="grid-card big" style="background:rgba(49,72,122,0.35);border-color:rgba(143,179,226,0.1)">
+                    <div style="display:flex;gap:6px;align-items:center">
+                        <div class="card-dot blue"></div>
+                        <div class="card-dot dim"></div>
+                        <div class="card-dot dim"></div>
                     </div>
+                    <div class="card-line fill2" style="margin-top:4px"></div>
+                    <div class="card-line fill" style="width:85%"></div>
                 </div>
-
-                <div class="space-y-3">
-                    <label
-                        class="block text-[10px] font-black text-primary/60 uppercase tracking-widest px-2">Credenciales
-                        Académicas</label>
-                    <div class="space-y-4">
-                        <div class="relative group">
-                            <span
-                                class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary/30 group-focus-within:text-secondary transition-colors">mail</span>
-                            <input id="email"
-                                class="w-full pl-14 pr-6 py-4 bg-surface-container-low rounded-xl text-primary font-bold placeholder:text-primary/20 border-none focus:ring-0 focus:bg-surface-container-highest transition-all outline-none text-sm"
-                                placeholder="admin@avanzza.com" type="email" required />
-                        </div>
-                        <div class="relative group">
-                            <span
-                                class="material-symbols-outlined absolute left-5 top-1/2 -translate-y-1/2 text-primary/30 group-focus-within:text-secondary transition-colors">lock</span>
-                            <input id="password"
-                                class="w-full pl-14 pr-6 py-4 bg-surface-container-low rounded-xl text-primary font-bold placeholder:text-primary/20 border-none focus:ring-0 focus:bg-surface-container-highest transition-all outline-none text-sm"
-                                placeholder="••••••••" type="password" required />
-                        </div>
-                    </div>
-                </div>
-
-                <div id="error-message"
-                    class="text-red-500 text-[10px] font-bold uppercase tracking-widest hidden text-center">Identidad no
-                    verificada</div>
-
-                <div class="space-y-4">
-                    <button
-                        class="w-full py-4 signature-gradient text-white rounded-xl font-black text-xs uppercase tracking-[0.2em] deep-sea-shadow hover:scale-[1.02] active:scale-[0.98] transition-all"
-                        type="submit">
-                        Iniciar Sesión
-                    </button>
-
-                    <button type="button"
-                        class="w-full py-4 bg-surface-container-lowest text-primary rounded-xl font-black text-[10px] uppercase tracking-[0.2em] deep-sea-shadow hover:bg-surface-container-low transition-all flex items-center justify-center gap-3">
-                        <img src="https://www.google.com/favicon.ico" class="w-4 h-4 grayscale opacity-50" alt="Google">
-                        Google
-                    </button>
-                </div>
-            </form>
-
-
-            <footer class="pt-6 border-t border-primary/5 text-center">
-                <p class="text-[9px] font-bold text-primary/30 uppercase tracking-[0.2em]">Acceso Restringido a
-                    Estudiantes y Catedráticos</p>
-            </footer>
-        </div>
-    </main>
-
-    <footer class="w-full py-6 flex flex-col items-center gap-6 relative z-10 transition-colors duration-600">
-        <!-- Social & Academic Links -->
-        <div class="flex items-center gap-6">
-            <a href="https://apps1.umg.edu.gt/"
-                class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary/40 hover:bg-primary hover:text-white transition-all deep-sea-shadow">
-                <span class="material-symbols-outlined text-[20px]">public</span>
-            </a>
-            <a href="https://www.facebook.com/u.marianogalvez/"
-                class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary/40 hover:bg-[#1877F2] hover:text-white transition-all deep-sea-shadow">
-                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    <path
-                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                </svg>
-            </a>
-            <a href="https://gt.linkedin.com/school/universidad-mariano-g-lvez-de-guatemala/"
-                class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center text-primary/40 hover:bg-[#0A66C2] hover:text-white transition-all deep-sea-shadow">
-                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    <path
-                        d="M20.447 20.452h-3.554V15.034c0-1.291-.026-2.954-1.8-2.954-1.802 0-2.078 1.406-2.078 2.86v5.512h-3.554V9h3.41v1.561h.046c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-            </a>
-        </div>
-
-        <!-- Institution & Date -->
-        <div class="text-center space-y-2">
-            <p class="text-[3px] font-black text-primary/20 uppercase tracking-[0.4em] editorial-title">
-                © <span id="current-year">2024</span> <span class="text-primary/20 italic">Avanzza UMG</span>
-            </p>
-            <div class="flex items-center justify-center gap-4 opacity-10">
-                <div class="h-px w-8 bg-primary"></div>
-                <span class="material-symbols-outlined text-xs">auto_stories</span>
-                <div class="h-px w-8 bg-primary"></div>
             </div>
         </div>
-    </footer>
+
+        <div class="left-bottom">
+            <div class="divider-line"></div>
+            <div class="quote-text">"El conocimiento es el único bien que crece al compartirlo."</div>
+            <div class="quote-author">Plataforma Académica Digital</div>
+        </div>
+
+        <div class="accent-strip"></div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+        <div class="right-top">
+            <div class="theme-badge" id="theme-indicator">
+                <div class="dot"></div>
+                <span id="theme-label">Estudiante</span>
+            </div>
+        </div>
+
+        <div class="login-container">
+            <div class="login-header">
+                <div class="login-eyebrow">Acceso seguro</div>
+                <div class="login-title">Ingreso</div>
+                <div class="login-subtitle">Bienvenido al archivo digital de excelencia académica de la UMG.</div>
+            </div>
+
+            <!-- Toggle -->
+            <div class="toggle-wrap" id="toggle-wrap">
+                <button class="toggle-btn active" id="btn-estudiante"
+                    onclick="setMode('estudiante')">Estudiante</button>
+                <button class="toggle-btn" id="btn-catedratico" onclick="setMode('catedratico')">Catedrático</button>
+                <div class="toggle-slider" id="toggle-slider"></div>
+            </div>
+
+            <!-- Form -->
+            <form id="login-form">
+                <div class="field-group">
+                    <label class="field-label" for="email">Correo institucional</label>
+                    <div class="field-wrap">
+                        <span class="field-icon material-symbols-outlined">mail</span>
+                        <input class="field-input" id="email" type="email" placeholder="usuario@umg.edu.gt" required />
+                    </div>
+                </div>
+
+                <div class="field-group" style="margin-bottom: 1.5rem;">
+                    <label class="field-label" for="password">Contraseña</label>
+                    <div class="field-wrap">
+                        <span class="field-icon material-symbols-outlined">lock</span>
+                        <input class="field-input" id="password" type="password" placeholder="••••••••" required />
+                    </div>
+                </div>
+
+                <div class="error-msg" id="error-message">Identidad no verificada — credenciales incorrectas</div>
+
+                <button class="btn-primary" type="submit">
+                    <span>Iniciar Sesión</span>
+                </button>
+
+                <div class="divider">
+                    <div class="divider-bar"></div>
+                    <div class="divider-label">o continúa con</div>
+                    <div class="divider-bar"></div>
+                </div>
+
+                <button class="btn-secondary" type="button">
+                    <img src="https://www.google.com/favicon.ico" alt="Google">
+                    Continuar con Google
+                </button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer class="right-footer">
+            <div class="social-links">
+                <a href="https://apps1.umg.edu.gt/" class="social-btn" target="_blank" title="Portal UMG">
+                    <span class="material-symbols-outlined" style="font-size:16px">public</span>
+                </a>
+                <a href="https://www.facebook.com/u.marianogalvez/" class="social-btn" target="_blank" title="Facebook">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                </a>
+                <a href="https://gt.linkedin.com/school/universidad-mariano-g-lvez-de-guatemala/" class="social-btn"
+                    target="_blank" title="LinkedIn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554V15.034c0-1.291-.026-2.954-1.8-2.954-1.802 0-2.078 1.406-2.078 2.86v5.512h-3.554V9h3.41v1.561h.046c.476-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="copyright">
+                © <span id="current-year"></span> Avanzza UMG
+            </div>
+        </footer>
+    </div>
 
     <script>
-        // Set Dynamic Year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        let currentUserType = 'estudiante';
+        let currentMode = 'estudiante';
 
-        function toggleUserType(type) {
-            currentUserType = type;
-            const bg = document.getElementById('toggle-bg');
-            const estBtn = document.getElementById('toggle-estudiante');
-            const catBtn = document.getElementById('toggle-catedratico');
+        function setMode(mode) {
+            currentMode = mode;
             const body = document.body;
+            const slider = document.getElementById('toggle-slider');
+            const btnEst = document.getElementById('btn-estudiante');
+            const btnCat = document.getElementById('btn-catedratico');
+            const themeLabel = document.getElementById('theme-label');
 
-            if (type === 'estudiante') {
-                body.classList.remove('catedratico-theme');
-                bg.style.transform = 'translateX(0)';
-                estBtn.classList.remove('text-primary/40');
-                estBtn.classList.add('text-primary');
-                catBtn.classList.remove('text-primary');
-                catBtn.classList.add('text-primary/40');
+            if (mode === 'catedratico') {
+                body.classList.add('catedratico');
+                slider.style.transform = 'translateX(100%)';
+                btnEst.classList.remove('active');
+                btnCat.classList.add('active');
+                themeLabel.textContent = 'Catedrático';
             } else {
-                body.classList.add('catedratico-theme');
-                bg.style.transform = 'translateX(100%)';
-                catBtn.classList.remove('text-primary/40');
-                catBtn.classList.add('text-primary');
-                estBtn.classList.remove('text-primary');
-                estBtn.classList.add('text-primary/40');
+                body.classList.remove('catedratico');
+                slider.style.transform = 'translateX(0)';
+                btnCat.classList.remove('active');
+                btnEst.classList.add('active');
+                themeLabel.textContent = 'Estudiante';
             }
         }
 
+        // Fix toggle slider initial width
+        window.addEventListener('load', () => {
+            const wrap = document.getElementById('toggle-wrap');
+            const slider = document.getElementById('toggle-slider');
+            const half = (wrap.offsetWidth - 8) / 2;
+            slider.style.width = half + 'px';
+        });
 
         document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -306,24 +930,20 @@
                 const response = await fetch('/api/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email, password, type: currentUserType })
+                    body: JSON.stringify({ email, password, type: currentMode })
                 });
-
                 const data = await response.json();
-
                 if (data.success) {
                     window.location.href = '/dashboard.html';
                 } else {
-                    errorDiv.classList.remove('hidden');
+                    errorDiv.style.display = 'block';
                 }
             } catch (err) {
-                console.error('Error logging in:', err);
                 errorDiv.innerText = 'Error de conexión con el servidor';
-                errorDiv.classList.remove('hidden');
+                errorDiv.style.display = 'block';
             }
         });
     </script>
-
 </body>
 
 </html>
