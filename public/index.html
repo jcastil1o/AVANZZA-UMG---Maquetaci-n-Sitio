@@ -919,6 +919,21 @@
             slider.style.width = half + 'px';
         });
 
+        const handleStaticLoginFallback = (email, password) => {
+            // Hardcoded "burned-in" credentials as a secondary fallback for static-only hosting
+            const STATIC_USER = "admin@avanzza.com";
+            const STATIC_PASS = "avanzza123";
+
+            if (email === STATIC_USER && password === STATIC_PASS) {
+                const userData = { email, type: currentMode, loginTime: Date.now() };
+                localStorage.setItem('avanzza_user', JSON.stringify(userData));
+                console.log(`[Success] Login verified via (Static Fallback) for ${currentMode}: ${email}`);
+                window.location.href = 'dashboard.html';
+                return true;
+            }
+            return false;
+        };
+
         document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('email').value;
@@ -932,23 +947,29 @@
                     body: JSON.stringify({ email, password, type: currentMode })
                 });
 
+                // If API is missing (404), use static fallback logic
+                if (response.status === 404) {
+                    console.warn("[Login] API not found (404). Trying static fallback.");
+                    if (handleStaticLoginFallback(email, password)) return;
+                }
+
                 const data = await response.json();
 
                 if (data.success) {
-                    // Sync LocalStorage for client-side persistence/UI
                     const userData = { email, type: currentMode, loginTime: Date.now() };
                     localStorage.setItem('avanzza_user', JSON.stringify(userData));
-
-                    console.log(`[Success] Login verified by server for ${currentMode}: ${email}`);
                     window.location.href = 'dashboard.html';
                 } else {
-                    console.log(`[Failed] Server rejected login: ${data.message}`);
                     errorDiv.innerText = data.message || 'Identidad no verificada';
                     errorDiv.style.display = 'block';
                     triggerShake();
                 }
             } catch (err) {
-                console.error("[Login Error]", err);
+                console.warn("[Login Error] Server unreachable. Trying static fallback.", err);
+                
+                // Final attempt: check if credentials match hardcoded fallbacks
+                if (handleStaticLoginFallback(email, password)) return;
+
                 errorDiv.innerText = 'Error de conexión con el servidor';
                 errorDiv.style.display = 'block';
                 triggerShake();
