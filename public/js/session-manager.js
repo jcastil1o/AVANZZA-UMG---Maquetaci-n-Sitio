@@ -1,5 +1,5 @@
 /**
- * Session Manager - Scholarly Editorial System (Static Hosting Version)
+ * Session Manager - Avanzza 2.0
  * Handles client-side inactivity timeout and route protection checks.
  */
 
@@ -39,18 +39,18 @@ function showInactivityModal() {
     localStorage.removeItem('avanzza_user');
 
     const modalHtml = `
-        <div id="inactivity-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-primary/20 backdrop-blur-xl animate-in fade-in duration-700">
-            <div class="bg-surface-container-lowest w-full max-w-md p-12 rounded-[3rem] shadow-2xl text-center space-y-8 animate-in zoom-in-95 duration-500">
-                <div class="w-20 h-20 bg-surface-container-low rounded-3xl mx-auto flex items-center justify-center">
-                    <span class="material-symbols-outlined text-primary text-4xl opacity-40">history</span>
+        <div id="inactivity-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/40 backdrop-blur-md animate-in fade-in duration-700">
+            <div class="bg-white w-full max-w-md p-12 rounded-4xl shadow-2xl text-center space-y-8 animate-in zoom-in-95 duration-500 border border-slate-100">
+                <div class="w-20 h-20 bg-blue-50 rounded-3xl mx-auto flex items-center justify-center">
+                    <span class="material-symbols-outlined text-primary text-4xl">history</span>
                 </div>
                 <div class="space-y-4">
-                    <h2 class="text-3xl font-black text-primary tracking-tighter editorial-title italic">Sesión Expirada</h2>
-                    <p class="text-sm text-primary/40 font-medium leading-relaxed">
-                        Tu tiempo en el <span class="italic font-bold">Avanzza UMG</span> ha concluido por inactividad.
+                    <h2 class="text-3xl font-black text-slate-800 headline-font italic">Sesión Expirada</h2>
+                    <p class="text-sm text-slate-500 font-medium leading-relaxed">
+                        Tu tiempo en <span class="italic font-bold text-primary">Avanzza</span> ha concluido por inactividad.
                     </p>
                 </div>
-                <button onclick="performLogout()" class="block w-full py-5 bg-primary text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all">
+                <button onclick="performLogout()" class="block w-full py-5 bg-primary text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
                     Reiniciar Acceso
                 </button>
             </div>

@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Dashboard - The Scholarly Editorial</title>
+    <title>Dashboard — Avanzza</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -18,176 +18,161 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#192338",
-                        "primary-container": "#192338",
-                        "secondary": "#31487A",
-                        "surface": "#f9f9ff",
-                        "surface-container-low": "#f1f3ff",
-                        "surface-container-highest": "#d8e2ff",
-                        "surface-container-lowest": "#ffffff",
-                        "on-surface": "#111b30",
-                        "on-surface-variant": "#45474d",
+                        "primary": "#0F4C97",
+                        "primary-hover": "#1E88E5",
+                        "secondary": "#1E88E5",
+                        "surface": "#f8fafc",
+                        "surface-variant": "#f1f5f9",
+                        "card": "#ffffff",
                         "accent": "#8FB3E2",
+                        "text-main": "#1e293b",
+                        "text-muted": "#64748b",
                     },
                     fontFamily: {
-                        "headline": ["Manrope", "sans-serif"],
-                        "body": ["Manrope", "sans-serif"],
+                        "headline": ["Outfit", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
                     },
-                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                    borderRadius: { "3xl": "1.5rem", "4xl": "2rem" },
                 },
             },
         }
     </script>
     <style>
         body {
-            font-family: 'Manrope', sans-serif;
-            background-color: #f9f9ff;
-            color: #111b30;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
         }
 
-        .editorial-title {
-            letter-spacing: -0.02em;
+        .headline-font {
+            font-family: 'Outfit', sans-serif;
         }
 
         .glass-header {
             background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(15, 76, 151, 0.05);
         }
 
-        .deep-sea-shadow {
-            box-shadow: 0px 12px 32px rgba(17, 27, 48, 0.06);
+        .premium-shadow {
+            box-shadow: 0 10px 40px -10px rgba(15, 76, 151, 0.1);
         }
 
         .quilt-block {
             width: 12px;
             height: 12px;
-            border-radius: 2px;
-            background-color: #d1d9e6;
-            transition: background-color 0.3s ease;
+            border-radius: 3px;
+            background-color: #e2e8f0;
+            transition: all 0.3s ease;
         }
 
-        .quilt-block.active {
-            background-color: #31487A;
-        }
+        .quilt-block.active { background-color: #0F4C97; transform: scale(1.1); }
+        .quilt-block.density-low { background-color: #d1e2f3; }
+        .quilt-block.density-mid { background-color: #8FB3E2; }
+        .quilt-block.density-high { background-color: #1E88E5; }
 
-        .quilt-block.density-low {
-            background-color: #d8e2ff;
-        }
-
-        .quilt-block.density-mid {
-            background-color: #8FB3E2;
-        }
-
-        .quilt-block.density-high {
-            background-color: #31487A;
+        .nav-link-active {
+            background: linear-gradient(90deg, rgba(15, 76, 151, 0.1) 0%, transparent 100%);
+            border-right: 4px solid #0F4C97;
+            color: #0F4C97 !important;
         }
     </style>
 </head>
 
 <body class="selection:bg-accent/30 selection:text-primary min-h-screen flex">
-    <!-- Sidebar - The Scholarly Sidebar -->
-    <aside class="h-screen w-64 fixed left-0 top-0 flex flex-col bg-surface-container-low z-[60] py-10">
-        <div class="px-8 mb-12">
-            <h1 class="text-lg font-black text-primary tracking-tighter uppercase editorial-title">Avanzza UMG</h1>
-            <p class="text-[10px] tracking-[0.2em] opacity-40 uppercase font-bold text-primary">Academic Excellence</p>
+    <!-- Sidebar -->
+    <aside class="h-screen w-72 fixed left-0 top-0 flex flex-col bg-white border-r border-slate-100 z-[60] py-10">
+        <div class="px-10 mb-12">
+            <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-xl">bolt</span>
+                </div>
+                <h1 class="text-2xl font-black text-primary tracking-tight headline-font">Avanzza</h1>
+            </div>
+            <p class="text-[10px] tracking-[0.2em] opacity-50 uppercase font-black text-slate-500">Formación Continua</p>
         </div>
 
-        <nav class="flex flex-col gap-2 flex-grow">
-            <a class="bg-surface-container-highest text-primary rounded-r-full py-4 px-8 flex items-center gap-4 transition-all"
-                href="dashboard.html">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">school</span>
+        <nav class="flex flex-col gap-1 pr-6">
+            <a class="nav-link-active py-4 px-10 flex items-center gap-4 transition-all" href="dashboard.html">
+                <span class="material-symbols-outlined nav-icon" style="font-variation-settings: 'FILL' 1;">dashboard</span>
                 <span class="font-bold text-sm">Dashboard</span>
             </a>
-            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all"
-                href="explorar.html">
-                <span class="material-symbols-outlined">explore</span>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all" href="explorar.html">
+                <span class="material-symbols-outlined">rocket_launch</span>
                 <span class="font-bold text-sm">Explorar</span>
             </a>
-            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all"
-                href="deseos.html">
-                <span class="material-symbols-outlined">bookmark</span>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all" href="deseos.html">
+                <span class="material-symbols-outlined">favorite</span>
                 <span class="font-bold text-sm">Lista de Deseos</span>
             </a>
-            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all"
-                href="seguimiento.html">
-                <span class="material-symbols-outlined">monitoring</span>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all" href="seguimiento.html">
+                <span class="material-symbols-outlined">insights</span>
                 <span class="font-bold text-sm">Seguimiento</span>
             </a>
-            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all"
-                href="proximos.html">
-                <span class="material-symbols-outlined">event</span>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all" href="proximos.html">
+                <span class="material-symbols-outlined">schedule</span>
                 <span class="font-bold text-sm">Próximos</span>
             </a>
-            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all"
-                href="activos.html">
-                <span class="material-symbols-outlined">play_circle</span>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all" href="activos.html">
+                <span class="material-symbols-outlined">school</span>
                 <span class="font-bold text-sm">Cursos Activos</span>
             </a>
         </nav>
 
-        <div class="mt-auto px-8 space-y-2">
-            <a class="text-primary/40 py-4 flex items-center gap-4 hover:text-primary transition-all" href="#">
+        <div class="mt-auto px-10 space-y-4">
+            <a class="text-slate-300 flex items-center gap-4 hover:text-slate-500 transition-all text-sm font-semibold" href="configuracion.html">
                 <span class="material-symbols-outlined">settings</span>
-                <span class="font-bold text-xs uppercase tracking-widest">Settings</span>
+                <span>Configuración</span>
             </a>
-            <a class="text-red-600/60 py-4 flex items-center gap-4 hover:text-red-600 transition-all border-t border-primary/5"
-                href="index.html">
+            <a class="text-red-500/70 flex items-center gap-4 hover:text-red-500 transition-all border-t border-slate-50 pt-4 text-sm font-bold" href="index.html">
                 <span class="material-symbols-outlined">logout</span>
-                <span class="font-bold text-xs uppercase tracking-widest">Salir de Sesión</span>
+                <span>Cerrar Sesión</span>
             </a>
         </div>
     </aside>
 
-    <!-- Main Content Canvas -->
-    <main class="ml-64 flex-grow min-h-screen flex flex-col relative bg-surface">
-        <!-- Floating Glass Header -->
-        <header class="glass-header flex justify-between items-center w-full px-12 py-5 sticky top-0 z-50">
-            <h2 class="text-sm font-bold text-primary tracking-widest uppercase editorial-title">Resumen de sesión
-            </h2>
-            <div class="flex items-center gap-6">
-                <span
-                    class="material-symbols-outlined text-primary/40 cursor-pointer hover:text-primary">notifications</span>
-                <div class="flex items-center gap-3 pl-6 border-l border-primary/5">
-                    <div class="text-right">
-                        <p class="text-xs font-black text-primary uppercase">Admin. Avanzza</p>
-                        <p class="text-[9px] font-bold text-secondary tracking-tighter">Dirección Académica</p>
-                    </div>
-                    <div class="w-10 h-10 rounded-xl bg-surface-container-highest deep-sea-shadow overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/a/ACg8ocL_2C8" class="w-full h-full object-cover">
+    <!-- Main Content -->
+    <main class="ml-72 flex-grow min-h-screen flex flex-col relative bg-surface">
+        <header class="glass-header flex justify-between items-center w-full px-16 py-6 sticky top-0 z-50">
+            <h2 class="text-xs font-black text-slate-400 tracking-[0.2em] uppercase headline-font">Resumen General</h2>
+            <div class="flex items-center gap-8">
+                <div class="flex gap-4">
+                    <span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary transition-colors">search</span>
+                    <span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary transition-colors">notifications</span>
+                </div>
+                <div class="flex items-center gap-4 pl-8 border-l border-slate-100">
+                    <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center premium-shadow">
+                        <span class="material-symbols-outlined text-white">person</span>
                     </div>
                 </div>
             </div>
         </header>
 
-        <!-- Content Body -->
-        <div class="p-12 max-w-7xl w-full mx-auto space-y-16">
-            <!-- Hero Heading - Intentional Asymmetry -->
-            <section class="max-w-3xl">
-                <span class="text-[10px] font-bold text-secondary uppercase tracking-[0.3em] mb-4 block">Bienvenido
-                    Admin. Avanzza</span>
-                <h3 class="text-6xl font-extrabold text-primary leading-none editorial-title mb-6">
-                    Tu viaje académico está <span class="text-secondary italic">floreciendo.</span>
+        <div class="p-16 max-w-7xl w-full mx-auto space-y-16">
+            <!-- Hero Section -->
+            <section class="max-w-4xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-primary rounded-full mb-6 text-[10px] font-black uppercase tracking-widest">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
+                    Estado del Aprendizaje
+                </div>
+                <h3 class="text-6xl font-black text-slate-800 leading-[1.1] headline-font mb-8">
+                    Tu camino hacia la <span class="text-primary italic">excelencia</span> empieza aquí.
                 </h3>
-                <p class="text-lg text-primary/60 font-medium leading-relaxed">
-                    Bienvenido de nuevo, Admin. Avanzza. Tu investigación sobre arquitectura estructural ha progresado
-                    un 15% esta semana. Continúa explorando los nuevos módulos seleccionados para hoy.
+                <p class="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
+                    Has completado el <span class="text-primary font-bold">15%</span> de tus metas semanales. Sigue explorando nuevas habilidades para potenciar tu perfil profesional.
                 </p>
             </section>
 
-            <!-- Tonal Grid -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <!-- Progress Quilt Section (4 cols) -->
-                <div
-                    class="lg:col-span-4 bg-surface-container-low p-10 rounded-[2rem] space-y-8 flex flex-col justify-center">
-                    <header>
-                        <h4 class="text-sm font-bold text-primary uppercase tracking-widest editorial-title mb-1">
-                            Progress Quilt</h4>
-                        <p class="text-[10px] text-primary/40 font-bold">COURSE DENSITY ANALYTICS</p>
+                <!-- Activity Section -->
+                <div class="lg:col-span-4 bg-white p-10 rounded-4xl border border-slate-100 premium-shadow flex flex-col">
+                    <header class="mb-8">
+                        <h4 class="text-sm font-black text-primary uppercase tracking-widest mb-1 headline-font">Actividad Semanal</h4>
+                        <p class="text-[10px] text-slate-400 font-bold uppercase">Densidad de estudio</p>
                     </header>
 
-                    <!-- The Grid of Blocks -->
-                    <div class="grid grid-cols-7 gap-2">
-                        <!-- Simulated blocks -->
+                    <div class="grid grid-cols-7 gap-3 mb-10">
+                        <!-- Simulated activity dots -->
                         <div class="quilt-block density-high"></div>
                         <div class="quilt-block density-mid"></div>
                         <div class="quilt-block density-high"></div>
@@ -218,71 +203,83 @@
                         <div class="quilt-block"></div>
                     </div>
 
-                    <div class="pt-6 border-t border-primary/5">
-                        <p class="text-3xl font-black text-primary">12.5h</p>
-                        <p class="text-[10px] font-bold text-primary/40 uppercase tracking-widest">Total Study Time</p>
+                    <div class="pt-8 border-t border-slate-50 mt-auto">
+                        <div class="flex items-end justify-between">
+                            <div>
+                                <p class="text-4xl font-black text-slate-800 headline-font">12.5h</p>
+                                <p class="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest mt-1">Tiempo Total de Estudio</p>
+                            </div>
+                            <span class="material-symbols-outlined text-primary bg-blue-50 p-3 rounded-2xl">trending_up</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Featured Course Section (8 cols) -->
+                <!-- Featured Course -->
                 <div class="lg:col-span-8 space-y-8">
-                    <header class="flex justify-between items-end">
-                        <h4 class="text-xl font-extrabold text-primary editorial-title italic">Cursos en Progreso</h4>
-                        <a href="explorar.html"
-                            class="text-xs font-bold text-secondary uppercase tracking-widest hover:underline">Ver
-                            Catálogo ➔</a>
+                    <header class="flex justify-between items-center">
+                        <h4 class="text-2xl font-black text-slate-800 headline-font">Continuar donde lo dejaste</h4>
+                        <a href="activos.html" class="text-xs font-black text-primary uppercase tracking-widest hover:translate-x-1 transition-transform inline-flex items-center gap-2">
+                            Mis Cursos <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
                     </header>
 
-                    <!-- Course Card - Layered (Lowest on Low/Surface) -->
-                    <div
-                        class="bg-surface-container-lowest p-8 rounded-[2rem] deep-sea-shadow flex flex-col md:flex-row gap-8 items-center transition-all hover:translate-y-[-4px]">
-                        <div
-                            class="w-full md:w-48 aspect-square rounded-2xl bg-surface-container-low overflow-hidden relative group">
-                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQu67mPLYCe_sb2DLsWmzmwqSQ3XK1XKsbPRfKA8b406tVVX4gnlJpBoVNq4bfA76t4iYB7T8j1Calujey4-imqMcLI8yYPyrFWA9xlDU6wGN-pN0wxkQSx1I759OefFAeH7q3VW5KzM5RIOUwo2QSjFx6z2mQNyxB087_nQ5gyz9zPC7sDc0M-G-cVQT3moFQey3Es5-r6EtxPDz4H9s5mgIbxkfnLHa_xHz0nwI6soIjz9g6rNd5jQh7cbO3jflinz9FSomI2PY"
-                                class="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 transition-all duration-700">
-                            <div
-                                class="absolute inset-0 bg-primary/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span class="material-symbols-outlined text-white text-4xl">play_circle</span>
+                    <div class="bg-white p-6 rounded-4xl border border-slate-100 premium-shadow flex flex-col md:flex-row gap-8 items-center group transition-all hover:border-primary/20">
+                        <div class="w-full md:w-56 aspect-[4/3] rounded-3xl bg-slate-100 overflow-hidden relative shadow-inner">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-primary/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm">
+                                <span class="material-symbols-outlined text-white text-5xl">play_circle</span>
                             </div>
                         </div>
-                        <div class="flex-grow space-y-4">
+                        <div class="flex-grow space-y-6 py-2">
                             <div>
-                                <span
-                                    class="px-3 py-1 bg-surface-container-highest text-[9px] font-bold text-primary uppercase tracking-widest rounded-full">Arquitectura</span>
-                                <h5 class="text-2xl font-black text-primary editorial-title mt-2">Minimalismo
-                                    Estructural en Diseño Moderno</h5>
+                                <span class="px-3 py-1 bg-blue-50 text-[10px] font-bold text-primary uppercase tracking-widest rounded-full">Tecnología</span>
+                                <h5 class="text-2xl font-black text-slate-800 headline-font mt-3 group-hover:text-primary transition-colors">Desarrollo Web Full-Stack Senior</h5>
                             </div>
-                            <p class="text-sm text-primary/40 font-medium leading-relaxed">Explora los fundamentos de la
-                                reducción formal y el uso de materiales industriales en la arquitectura del siglo XXI.
+                            <p class="text-slate-500 text-sm font-medium leading-relaxed line-clamp-2">
+                                Domina las arquitecturas más modernas, desde el backend distribuido hasta interfaces dinámicas reactivas con estándares de industria.
                             </p>
 
-                            <div class="flex items-center gap-6 pt-4">
-                                <div class="flex-grow h-1.5 bg-surface-container-low rounded-full overflow-hidden">
-                                    <div class="h-full bg-secondary" style="width: 72%"></div>
+                            <div class="space-y-3 pt-2">
+                                <div class="flex justify-between text-xs font-black uppercase text-slate-400 tracking-widest">
+                                    <span>Progreso</span>
+                                    <span class="text-primary">72%</span>
                                 </div>
-                                <span class="text-xs font-black text-primary tracking-tighter">72%</span>
+                                <div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full transition-all duration-1000" style="width: 72%"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Custom Horizontal Section - Surface Container High -->
-            <section class="bg-surface-container-highest/20 p-16 rounded-[3rem] text-center space-y-6">
-                <h4 class="text-3xl font-black text-primary editorial-title">¿Listo para elevar tu conocimiento?</h4>
-                <p class="text-primary/60 max-w-xl mx-auto font-medium">Nuestros curadores han seleccionado nuevos
-                    manuscritos digitales y workshops asíncronos para tu nivel académico.</p>
-                <div class="pt-4">
-                    <a href="explorar.html"
-                        class="inline-block px-10 py-5 bg-primary text-white font-black text-xs uppercase tracking-[0.2em] rounded-xl deep-sea-shadow hover:bg-secondary transition-all">Explorar
-                        Avanzza</a>
+            <!-- CTA Banner -->
+            <section class="bg-primary p-16 rounded-4xl text-center space-y-8 relative overflow-hidden">
+                <!-- Abstract decorations -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary/20 rounded-full blur-3xl -ml-32 -mb-32"></div>
+                
+                <div class="relative z-10">
+                    <h4 class="text-4xl font-black text-white headline-font mb-4">¿Listo para dar el siguiente paso?</h4>
+                    <p class="text-white/70 max-w-xl mx-auto font-medium text-lg">
+                        Explora nuestro catálogo de certificaciones diseñadas por expertos para acelerar tu carrera profesional hoy mismo.
+                    </p>
+                    <div class="pt-10">
+                        <a href="explorar.html" class="inline-flex items-center gap-3 px-10 py-5 bg-white text-primary font-black text-sm uppercase tracking-widest rounded-2xl hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300">
+                            Explorar Catálogo <span class="material-symbols-outlined">rocket</span>
+                        </a>
+                    </div>
                 </div>
             </section>
         </div>
 
-        <footer
-            class="mt-auto py-12 px-12 opacity-30 text-[10px] font-bold text-primary uppercase tracking-widest text-center">
-            © <span id="current-year">2026</span> AVANZZA UMG. ALL RIGHTS RESERVED.
+        <footer class="mt-auto py-12 px-16 border-t border-slate-100 flex justify-between items-center bg-white/50">
+            <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">© <span id="current-year">2026</span> AVANZZA. TODOS LOS DERECHOS RESERVADOS.</p>
+            <div class="flex gap-6">
+                <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">public</span></a>
+                <a href="#" class="text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined text-lg">mail</span></a>
+            </div>
         </footer>
 
     </main>

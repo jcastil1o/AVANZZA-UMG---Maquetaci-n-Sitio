@@ -1,12 +1,14 @@
 :root {
-    --bg: #0a0a0c;
-    --card-bg: rgba(255, 255, 255, 0.03);
-    --border: rgba(255, 255, 255, 0.1);
-    --primary: linear-gradient(135deg, #7c3aed, #2563eb);
-    --text-primary: #ffffff;
-    --text-secondary: #a1a1aa;
+    --bg: #f8fafc;
+    --card-bg: #ffffff;
+    --border: rgba(15, 76, 151, 0.08);
+    --primary: linear-gradient(135deg, #0F4C97, #1E88E5);
+    --primary-solid: #0F4C97;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
     --font-heading: 'Outfit', sans-serif;
-    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --accent: #8FB3E2;
 }
 
 * {
@@ -55,8 +57,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem 10%;
-    background: rgba(10, 10, 12, 0.8);
+    padding: 1.5rem 10%;
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
     position: sticky;
@@ -118,15 +120,17 @@ nav {
 }
 
 .badge {
-    background: rgba(124, 58, 237, 0.1);
-    color: #a78bfa;
+    background: rgba(15, 76, 151, 0.08);
+    color: var(--primary-solid);
     padding: 0.5rem 1.2rem;
     border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    border: 1px solid rgba(124, 58, 237, 0.2);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border: 1px solid rgba(15, 76, 151, 0.1);
     display: inline-block;
     margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .hero h1 {
@@ -159,16 +163,19 @@ nav {
 .btn-main {
     background: var(--primary);
     color: white;
-    padding: 1.2rem 2.5rem;
-    border-radius: 12px;
+    padding: 1rem 2.2rem;
+    border-radius: 14px;
     text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(15, 76, 151, 0.2);
 }
 
 .btn-main:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(15, 76, 151, 0.3);
+    filter: brightness(1.1);
 }
 
 .btn-secondary {
@@ -255,9 +262,35 @@ code {
 }
 
 .feature-card:hover {
-    border-color: rgba(124, 58, 237, 0.4);
-    transform: scale(1.02);
-    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent);
+    transform: translateY(-10px);
+    background: #ffffff;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+/* Custom Bullets (Viñetas) */
+.custom-list {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+}
+
+.custom-list li::before {
+    content: '\e5ca'; /* Check icon */
+    font-family: 'Material Symbols Outlined';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-solid);
+    font-size: 20px;
+    font-weight: 800;
 }
 
 .feature-card .icon {

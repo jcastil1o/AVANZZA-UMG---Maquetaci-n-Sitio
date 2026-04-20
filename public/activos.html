@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Cursos Activos - Avanzza UMG</title>
+    <title>Cursos Activos — Avanzza</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <script src="js/session-manager.js"></script>
     <script id="tailwind-config">
@@ -14,140 +14,151 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#192338",
-                        "primary-container": "#192338",
-                        "secondary": "#31487A",
-                        "surface": "#f9f9ff",
-                        "surface-container-low": "#f1f3ff",
-                        "surface-container-highest": "#d8e2ff",
-                        "surface-container-lowest": "#ffffff",
-                        "on-surface": "#111b30",
-                        "on-surface-variant": "#45474d",
+                        "primary": "#0F4C97",
+                        "secondary": "#1E88E5",
+                        "surface": "#f8fafc",
+                        "card": "#ffffff",
                         "accent": "#8FB3E2",
                     },
                     fontFamily: {
-                        "headline": ["Manrope", "sans-serif"],
-                        "body": ["Manrope", "sans-serif"],
+                        "headline": ["Outfit", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
                     },
-                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    borderRadius: {"3xl": "1.5rem", "4xl": "2rem"},
                 },
             },
         }
     </script>
     <style>
-        body { font-family: 'Manrope', sans-serif; background-color: #f9f9ff; color: #111b30; }
-        .editorial-title { letter-spacing: -0.02em; }
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        .headline-font { font-family: 'Outfit', sans-serif; }
         .glass-header {
             background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(15, 76, 151, 0.05);
         }
-        .deep-sea-shadow {
-            box-shadow: 0px 12px 32px rgba(17, 27, 48, 0.06);
+        .premium-shadow {
+            box-shadow: 0 10px 40px -10px rgba(15, 76, 151, 0.1);
+        }
+        .nav-link-active {
+            background: linear-gradient(90deg, rgba(15, 76, 151, 0.1) 0%, transparent 100%);
+            border-right: 4px solid #0F4C97;
+            color: #0F4C97 !important;
         }
     </style>
 </head>
 <body class="selection:bg-accent/30 selection:text-primary min-h-screen flex">
     <!-- Sidebar -->
-    <aside class="h-screen w-64 fixed left-0 top-0 flex flex-col bg-surface-container-low z-[60] py-10">
-        <div class="px-8 mb-12">
-            <h1 class="text-lg font-black text-primary tracking-tighter uppercase editorial-title">Avanzza UMG</h1>
-            <p class="text-[10px] tracking-[0.2em] opacity-40 uppercase font-bold text-primary">Academic Excellence</p>
+    <aside class="h-screen w-72 fixed left-0 top-0 flex flex-col bg-white border-r border-slate-100 z-[60] py-10">
+        <div class="px-10 mb-12">
+            <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-xl">bolt</span>
+                </div>
+                <h1 class="text-2xl font-black text-primary tracking-tight headline-font">Avanzza</h1>
+            </div>
+            <p class="text-[10px] tracking-[0.2em] opacity-50 uppercase font-black text-slate-500">Formación Continua</p>
         </div>
         
-        <nav class="flex flex-col gap-2 flex-grow">
-            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all" href="dashboard.html">
-                <span class="material-symbols-outlined">school</span>
+        <nav class="flex flex-col gap-1 pr-6">
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all" href="dashboard.html">
+                <span class="material-symbols-outlined">dashboard</span>
                 <span class="font-bold text-sm">Dashboard</span>
             </a>
-            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all" href="explorar.html">
-                <span class="material-symbols-outlined">explore</span>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all" href="explorar.html">
+                <span class="material-symbols-outlined">rocket_launch</span>
                 <span class="font-bold text-sm">Explorar</span>
             </a>
-            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all" href="deseos.html">
-                <span class="material-symbols-outlined">bookmark</span>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all" href="deseos.html">
+                <span class="material-symbols-outlined">favorite</span>
                 <span class="font-bold text-sm">Lista de Deseos</span>
             </a>
-            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all" href="seguimiento.html">
-                <span class="material-symbols-outlined">monitoring</span>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all" href="seguimiento.html">
+                <span class="material-symbols-outlined">insights</span>
                 <span class="font-bold text-sm">Seguimiento</span>
             </a>
-            <a class="text-primary/60 py-4 px-8 flex items-center gap-4 hover:bg-white/50 hover:translate-x-1 transition-all" href="proximos.html">
-                <span class="material-symbols-outlined">event</span>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all" href="proximos.html">
+                <span class="material-symbols-outlined">schedule</span>
                 <span class="font-bold text-sm">Próximos</span>
             </a>
-            <a class="bg-surface-container-highest text-primary rounded-r-full py-4 px-8 flex items-center gap-4 transition-all" href="activos.html">
-                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+            <a class="nav-link-active py-4 px-10 flex items-center gap-4 transition-all" href="activos.html">
+                <span class="material-symbols-outlined nav-icon" style="font-variation-settings: 'FILL' 1;">school</span>
                 <span class="font-bold text-sm">Cursos Activos</span>
             </a>
         </nav>
 
-        <div class="mt-auto px-8 space-y-2">
-            <a class="text-primary/40 py-4 flex items-center gap-4 hover:text-primary transition-all" href="#">
+        <div class="mt-auto px-10 space-y-4">
+            <a class="text-slate-300 flex items-center gap-4 hover:text-slate-500 transition-all text-sm font-semibold" href="configuracion.html">
                 <span class="material-symbols-outlined">settings</span>
-                <span class="font-bold text-xs uppercase tracking-widest">Settings</span>
+                <span>Configuración</span>
             </a>
-            <a class="text-red-600/60 py-4 flex items-center gap-4 hover:text-red-600 transition-all border-t border-primary/5" href="index.html">
+            <a class="text-red-500/70 flex items-center gap-4 hover:text-red-500 transition-all border-t border-slate-50 pt-4 text-sm font-bold" href="index.html">
                 <span class="material-symbols-outlined">logout</span>
-                <span class="font-bold text-xs uppercase tracking-widest">Salir de Sesión</span>
+                <span>Cerrar Sesión</span>
             </a>
         </div>
     </aside>
 
-    <main class="ml-64 flex-grow min-h-screen flex flex-col relative bg-surface">
-        <header class="glass-header flex justify-between items-center w-full px-12 py-5 sticky top-0 z-50">
-            <h2 class="text-sm font-bold text-primary tracking-widest uppercase editorial-title">Digital Curator View</h2>
-            <div class="flex items-center gap-6">
-                <span class="material-symbols-outlined text-primary/40 cursor-pointer hover:text-primary">notifications</span>
-                <div class="flex items-center gap-3 pl-6 border-l border-primary/5">
-                    <div class="text-right">
-                        <p class="text-xs font-black text-primary uppercase">M. Scholarly</p>
-                        <p class="text-[9px] font-bold text-secondary tracking-tighter">Academic Tier I</p>
-                    </div>
-                    <div class="w-10 h-10 rounded-xl bg-surface-container-highest deep-sea-shadow overflow-hidden">
-                        <img src="https://lh3.googleusercontent.com/a/ACg8ocL_2C8" class="w-full h-full object-cover">
+    <main class="ml-72 flex-grow min-h-screen flex flex-col relative bg-surface">
+        <header class="glass-header flex justify-between items-center w-full px-16 py-6 sticky top-0 z-50">
+            <h2 class="text-xs font-black text-slate-400 tracking-[0.2em] uppercase headline-font">Progreso Académico</h2>
+            <div class="flex items-center gap-8">
+                <div class="flex gap-4">
+                    <span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary transition-colors">history</span>
+                    <span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary transition-colors">notifications</span>
+                </div>
+                <div class="flex items-center gap-4 pl-8 border-l border-slate-100">
+                    <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center premium-shadow">
+                        <span class="material-symbols-outlined text-white">person</span>
                     </div>
                 </div>
             </div>
         </header>
 
-        <div class="p-12 max-w-7xl w-full mx-auto space-y-16">
-            <section class="max-w-3xl">
-                <span class="text-[10px] font-bold text-secondary uppercase tracking-[0.3em] mb-4 block">Active Learning</span>
-                <h3 class="text-6xl font-extrabold text-primary leading-none editorial-title mb-6">
-                    Programas en <span class="text-secondary italic">Curso.</span>
+        <div class="p-16 max-w-7xl w-full mx-auto space-y-16">
+            <section class="max-w-4xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-primary rounded-full mb-6 text-[10px] font-black uppercase tracking-widest">
+                    <span class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
+                    Tu Progreso Académico
+                </div>
+                <h3 class="text-6xl font-black text-slate-800 leading-[1.1] headline-font mb-8">
+                    Programas en <span class="text-primary italic">curso.</span>
                 </h3>
-                <p class="text-lg text-primary/60 font-medium leading-relaxed">
-                    Continúa tu formación en los programas activos. Tu dedicación constante es el motor de tu excelencia académica.
+                <p class="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl">
+                    Continúa tu formación en los programas activos. Tu dedicación constante es el motor de tu excelencia académica y profesional.
                 </p>
             </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <!-- Active Course 1 -->
-                <div class="bg-surface-container-lowest p-8 rounded-[2rem] deep-sea-shadow flex flex-col gap-6 transition-all hover:translate-y-[-4px]">
-                    <div class="aspect-video rounded-3xl bg-surface-container-low overflow-hidden relative group">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDF0yC4WCYQ0xNL5JkFhU_K81YOHBfvXBBJv3yE_Pw0PVWoo1iimqxGpVEbo4qiH3QipdiHjsACSww6cNUBsAQ1p6OezrDNNcer8-UQY9StMgSghYbY36tMvL_To0oC-wtmRTQrK5SoIB1-W1mQP7m4Q27iBABlVh5LpCwRAeKWCBRXSuu36I1XiYjoq7uIApgnefYp5UH3f0P7VDS_yQ860i6cYL4B3RGGNDx6eq8RfY2QUJEwVG2i8hUm-y37cqQm1wwwlhkfBBU" class="w-full h-full object-cover grayscale brightness-110">
-                        <div class="absolute inset-0 bg-primary/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                            <a href="seguimiento.html" class="px-8 py-4 bg-white/20 backdrop-blur-xl text-white font-black text-xs uppercase tracking-widest rounded-xl border border-white/30">Continuar</a>
+                <div class="bg-white p-8 rounded-4xl border border-slate-100 premium-shadow flex flex-col gap-8 transition-all hover:translate-y-[-5px] group">
+                    <div class="aspect-video rounded-3xl bg-slate-50 overflow-hidden relative shadow-inner">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800" class="w-full h-full object-cover grayscale brightness-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                        <div class="absolute inset-0 bg-primary/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-sm">
+                            <a href="seguimiento.html" class="px-10 py-5 bg-white text-primary font-black text-xs uppercase tracking-widest rounded-2xl shadow-xl hover:scale-110 transition-all">Continuar</a>
                         </div>
                     </div>
-                    <div class="space-y-4">
+                    <div class="space-y-6">
                         <header>
-                            <span class="px-3 py-1 bg-surface-container-highest text-[9px] font-bold text-primary uppercase tracking-widest rounded-full">Sistemas</span>
-                            <h4 class="text-3xl font-black text-primary editorial-title mt-2">Fundamentos de Backend Moderno</h4>
+                            <span class="px-3 py-1 bg-blue-50 text-[10px] font-bold text-primary uppercase tracking-widest rounded-full">Sistemas</span>
+                            <h4 class="text-3xl font-black text-slate-800 headline-font mt-4 group-hover:text-primary transition-colors">Fundamentos de Backend Moderno</h4>
                         </header>
-                        <div class="flex items-center gap-6 pt-2">
-                            <div class="flex-grow h-1.5 bg-surface-container-low rounded-full overflow-hidden">
-                                <div class="h-full bg-secondary" style="width: 45%"></div>
+                        <div class="space-y-4">
+                            <div class="flex justify-between text-xs font-black uppercase text-slate-400 tracking-widest">
+                                <span>Progreso Actual</span>
+                                <span class="text-primary">45%</span>
                             </div>
-                            <span class="text-xs font-black text-primary">45%</span>
+                            <div class="h-2.5 bg-slate-100 rounded-full overflow-hidden shadow-inner">
+                                <div class="h-full bg-primary rounded-full transition-all duration-1000" style="width: 45%"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <footer class="mt-auto py-12 px-12 opacity-30 text-[10px] font-bold text-primary uppercase tracking-widest text-center">
-            © <span id="current-year">2026</span> AVANZZA UMG. ALL RIGHTS RESERVED.
+        <footer class="mt-auto py-12 px-16 border-t border-slate-100 flex justify-between items-center bg-white/50">
+            <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">© <span id="current-year">2026</span> AVANZZA. TODOS LOS DERECHOS RESERVADOS.</p>
         </footer>
     </main>
 </body>

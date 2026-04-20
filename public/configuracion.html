@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Configuración — Avanzza</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="js/session-manager.js"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0F4C97",
+                        "secondary": "#1E88E5",
+                        "surface": "#f8fafc",
+                        "card": "#ffffff",
+                        "accent": "#8FB3E2",
+                    },
+                    fontFamily: {
+                        "headline": ["Outfit", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: { "3xl": "1.5rem", "4xl": "2rem" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .headline-font {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(15, 76, 151, 0.05);
+        }
+
+        .premium-shadow {
+            box-shadow: 0 10px 40px -10px rgba(15, 76, 151, 0.1);
+        }
+
+        .nav-link-active {
+            background: linear-gradient(90deg, rgba(15, 76, 151, 0.1) 0%, transparent 100%);
+            border-right: 4px solid #0F4C97;
+            color: #0F4C97 !important;
+        }
+    </style>
+</head>
+
+<body class="selection:bg-primary/10 selection:text-primary min-h-screen flex">
+    <!-- Sidebar -->
+    <aside class="h-screen w-72 fixed left-0 top-0 flex flex-col bg-white border-r border-slate-100 z-[60] py-10">
+        <div class="px-10 mb-12">
+            <div class="flex items-center gap-3 mb-2">
+                <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <span class="material-symbols-outlined text-white text-xl">bolt</span>
+                </div>
+                <h1 class="text-2xl font-black text-primary tracking-tight headline-font">Avanzza</h1>
+            </div>
+            <p class="text-[10px] tracking-[0.2em] opacity-50 uppercase font-black text-slate-500">Formación Continua
+            </p>
+        </div>
+
+        <nav class="flex flex-col gap-1 pr-6">
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all"
+                href="dashboard.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="font-bold text-sm">Dashboard</span>
+            </a>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all"
+                href="explorar.html">
+                <span class="material-symbols-outlined">rocket_launch</span>
+                <span class="font-bold text-sm">Explorar</span>
+            </a>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all"
+                href="deseos.html">
+                <span class="material-symbols-outlined">favorite</span>
+                <span class="font-bold text-sm">Lista de Deseos</span>
+            </a>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all"
+                href="seguimiento.html">
+                <span class="material-symbols-outlined">insights</span>
+                <span class="font-bold text-sm">Seguimiento</span>
+            </a>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all"
+                href="proximos.html">
+                <span class="material-symbols-outlined">schedule</span>
+                <span class="font-bold text-sm">Próximos</span>
+            </a>
+            <a class="text-slate-400 py-4 px-10 flex items-center gap-4 hover:text-primary hover:bg-slate-50 rounded-r-3xl transition-all"
+                href="activos.html">
+                <span class="material-symbols-outlined">school</span>
+                <span class="font-bold text-sm">Cursos Activos</span>
+            </a>
+        </nav>
+
+        <div class="mt-auto px-10 space-y-4">
+            <a class="nav-link-active py-4 flex items-center gap-4 transition-all text-sm font-semibold rounded-r-3xl"
+                href="configuracion.html">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Configuración</span>
+            </a>
+            <a class="text-red-500/70 flex items-center gap-4 hover:text-red-500 transition-all border-t border-slate-50 pt-4 text-sm font-bold"
+                href="index.html">
+                <span class="material-symbols-outlined">logout</span>
+                <span>Cerrar Sesión</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="ml-72 flex-grow min-h-screen flex flex-col relative bg-surface">
+        <header class="glass-header flex justify-between items-center w-full px-16 py-6 sticky top-0 z-50">
+            <h2 class="text-xs font-black text-slate-400 tracking-[0.2em] uppercase headline-font">Centro de
+                Configuración</h2>
+            <div class="flex items-center gap-8">
+                <span
+                    class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">notifications</span>
+                <div class="flex items-center gap-4 pl-8 border-l border-slate-100">
+                    <div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center premium-shadow">
+                        <span class="material-symbols-outlined text-white">person</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="p-16 max-w-5xl w-full mx-auto space-y-12">
+            <header>
+                <h3 class="text-4xl font-black text-slate-800 headline-font">Configuración del Perfil</h3>
+                <p class="text-slate-500 font-medium mt-2">Gestiona tu identidad y preferencias dentro de Avanzza.</p>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <!-- Navigation -->
+                <nav class="space-y-2">
+                    <button
+                        class="w-full text-left px-6 py-4 bg-white border border-slate-100 rounded-2xl premium-shadow text-primary font-bold text-sm flex items-center justify-between">
+                        Información Personal <span class="material-symbols-outlined text-sm">chevron_right</span>
+                    </button>
+                    <button
+                        class="w-full text-left px-6 py-4 text-slate-500 font-semibold text-sm hover:bg-slate-50 rounded-2xl transition-all">
+                        Seguridad y Privacidad
+                    </button>
+                    <button
+                        class="w-full text-left px-6 py-4 text-slate-500 font-semibold text-sm hover:bg-slate-50 rounded-2xl transition-all">
+                        Notificaciones
+                    </button>
+                    <button
+                        class="w-full text-left px-6 py-4 text-slate-500 font-semibold text-sm hover:bg-slate-50 rounded-2xl transition-all text-red-500">
+                        Eliminar Cuenta
+                    </button>
+                </nav>
+
+                <!-- Form Area -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="bg-white p-10 rounded-4xl border border-slate-100 premium-shadow space-y-10">
+                        <div class="flex items-center gap-8 border-b border-slate-50 pb-10">
+                            <div class="relative group">
+                                <div
+                                    class="w-24 h-24 rounded-3xl bg-slate-100 flex items-center justify-center border-2 border-dashed border-slate-300 group-hover:border-primary transition-colors cursor-pointer">
+                                    <span
+                                        class="material-symbols-outlined text-3xl text-slate-300 group-hover:text-primary">add_a_photo</span>
+                                </div>
+                                <div
+                                    class="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg">
+                                    <span class="material-symbols-outlined text-xs">edit</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-black text-slate-800 headline-font">Foto de Perfil</h4>
+                                <p class="text-xs text-slate-400 mt-1 uppercase tracking-widest font-bold">JPG o PNG.
+                                    Máximo 5MB.</p>
+                            </div>
+                        </div>
+
+                        <form class="space-y-6">
+                            <div class="grid grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Nombre
+                                        Completo</label>
+                                    <input type="text" value="Admin Avanzza"
+                                        class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-primary/20 text-sm font-semibold text-slate-800 placeholder-slate-300">
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Título
+                                        Profesional</label>
+                                    <input type="text" placeholder="Ej. Desarrollador Senior"
+                                        class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-primary/20 text-sm font-semibold text-slate-800 placeholder-slate-300">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Correo
+                                    Electrónico</label>
+                                <input type="email" value="admin@avanzza.com"
+                                    class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-primary/20 text-sm font-semibold text-slate-800 placeholder-slate-300">
+                            </div>
+                            <div class="space-y-2">
+                                <label
+                                    class="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Biografía
+                                    Corta</label>
+                                <textarea rows="4"
+                                    class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-primary/20 text-sm font-semibold text-slate-800 placeholder-slate-300">Administrador de la plataforma de formación continua Avanzza.</textarea>
+                            </div>
+
+                            <div class="pt-6 flex justify-end gap-4">
+                                <button type="button"
+                                    class="px-8 py-4 text-slate-400 font-bold text-xs uppercase tracking-widest hover:bg-slate-50 rounded-2xl transition-all">Cancelar</button>
+                                <button type="submit"
+                                    class="px-10 py-4 bg-primary text-white font-black text-xs uppercase tracking-widest rounded-2xl shadow-xl shadow-primary/20 hover:scale-105 transition-all">Guardar
+                                    Cambios</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="mt-auto py-12 px-16 border-t border-slate-100 flex justify-between items-center bg-white/50">
+            <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">© <span
+                    id="current-year">2026</span> AVANZZA. TODOS LOS DERECHOS RESERVADOS.</p>
+        </footer>
+    </main>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

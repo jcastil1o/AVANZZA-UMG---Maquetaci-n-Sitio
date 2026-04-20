@@ -21,8 +21,9 @@ app.use(session({
 
 // Auth Middleware
 const requireAuth = (req, res, next) => {
-    // Allow access to login page, API login, and public static assets
-    if (req.path === '/' || req.path === '/index.html' || req.path === '/api/login' || 
+    // Allow access to login page, 404, API login/config, and public static assets
+    if (req.path === '/' || req.path === '/index.html' || req.path === '/404.html' || 
+        req.path === '/api/login' || req.path === '/api/config' ||
         req.path.startsWith('/js/') || req.path.startsWith('/css/') || req.path.startsWith('/assets/')) {
         return next();
     }
@@ -31,7 +32,7 @@ const requireAuth = (req, res, next) => {
         return next();
     } else {
         // If it's an AJAX/API request, send 401
-        if (req.xhr || req.headers.accept.indexOf('json') > -1) {
+        if (req.xhr || (req.headers.accept && req.headers.accept.indexOf('json') > -1)) {
             return res.status(401).json({ success: false, message: "Session expired" });
         }
         // Redirect to login
